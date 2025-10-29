@@ -1,65 +1,203 @@
-import Image from "next/image";
+import { SignInButton, SignUpButton, SignedIn, SignedOut } from '@clerk/nextjs'
+import { Sparkles, Shield, Zap, Palette } from 'lucide-react'
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="flex min-h-screen items-center justify-center p-4">
+      <SignedOut>
+        <div className="w-full max-w-6xl">
+          {/* Hero Section */}
+          <div className="text-center mb-12">
+            <div
+              className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
+              style={{
+                background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+              }}
+            >
+              <span className="text-2xl font-bold text-white">OPS</span>
+            </div>
+
+            <h1
+              className="text-5xl sm:text-6xl font-bold mb-6 leading-tight"
+              style={{
+                background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
+              Operations Portal
+            </h1>
+
+            <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Your gateway to advanced operations management.
+              Secure, powerful, and beautifully designed for the modern enterprise.
+            </p>
+
+            <div
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-white/60 mb-12"
+              style={{
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(10px)',
+              }}
+            >
+              <Sparkles className="w-4 h-4" />
+              Next-generation authentication experience
+            </div>
+          </div>
+
+          {/* Authentication Section */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {/* Sign In Card */}
+            <div
+              className="p-8 rounded-2xl text-center group hover:scale-105 transition-all duration-300"
+              style={{
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+              }}
+            >
+              <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-linear-to-r from-blue-500 to-indigo-600 flex items-center justify-center">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                </svg>
+              </div>
+
+              <h3 className="text-2xl font-semibold text-white mb-3">Welcome Back</h3>
+              <p className="text-white/70 mb-6">
+                Continue your operations journey with secure authentication
+              </p>
+
+              <SignInButton>
+                <button
+                  type="button"
+                  className="w-full py-3 px-6 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  style={{
+                    background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+                    boxShadow: '0 4px 20px rgba(99, 102, 241, 0.3)',
+                  }}
+                >
+                  Sign In to Dashboard
+                </button>
+              </SignInButton>
+            </div>
+
+            {/* Sign Up Card */}
+            <div
+              className="p-8 rounded-2xl text-center group hover:scale-105 transition-all duration-300"
+              style={{
+                background: 'rgba(255, 255, 255, 0.05)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
+                backdropFilter: 'blur(20px)',
+              }}
+            >
+              <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-linear-to-r from-purple-500 to-pink-600 flex items-center justify-center">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                </svg>
+              </div>
+
+              <h3 className="text-2xl font-semibold text-white mb-3">Get Started</h3>
+              <p className="text-white/70 mb-6">
+                Join the operations platform and unlock powerful features
+              </p>
+
+              <SignUpButton>
+                <button
+                  type="button"
+                  className="w-full py-3 px-6 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  style={{
+                    background: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
+                    boxShadow: '0 4px 20px rgba(139, 92, 246, 0.3)',
+                  }}
+                >
+                  Create Account
+                </button>
+              </SignUpButton>
+            </div>
+          </div>
+
+          {/* Features Preview */}
+          <div className="mt-16 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              {[
+                {
+                  id: 'secure',
+                  icon: Shield,
+                  title: 'Secure',
+                  desc: 'Enterprise-grade security',
+                  gradient: 'from-emerald-500 to-teal-600'
+                },
+                {
+                  id: 'fast',
+                  icon: Zap,
+                  title: 'Fast',
+                  desc: 'Lightning-fast operations',
+                  gradient: 'from-yellow-500 to-orange-600'
+                },
+                {
+                  id: 'beautiful',
+                  icon: Palette,
+                  title: 'Beautiful',
+                  desc: 'Modern, intuitive design',
+                  gradient: 'from-pink-500 to-rose-600'
+                }
+              ].map((feature) => {
+                const IconComponent = feature.icon
+                return (
+                  <div
+                    key={feature.id}
+                    className="p-6 rounded-lg text-center group hover:scale-105 transition-all duration-300"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.03)',
+                      border: '1px solid rgba(255, 255, 255, 0.08)',
+                    }}
+                  >
+                    <div
+                      className={`w-12 h-12 mx-auto mb-4 rounded-lg bg-linear-to-r ${feature.gradient} flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}
+                    >
+                      <IconComponent className="w-6 h-6 text-white" />
+                    </div>
+                    <h4 className="text-lg font-semibold text-white mb-2">{feature.title}</h4>
+                    <p className="text-white/60 text-sm">{feature.desc}</p>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        </div>
+      </SignedOut>
+
+      <SignedIn>
+        <div className="text-center">
+          <div
+            className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
+            style={{
+              background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+            }}
+          >
+            <span className="text-2xl font-bold text-white">OPS</span>
+          </div>
+
+          <h1 className="text-4xl font-bold text-white mb-4">
+            Welcome to Operations Portal
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+
+          <p className="text-white/70 mb-8">
+            You're successfully authenticated. Redirecting to dashboard...
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+          <div
+            className="inline-block px-6 py-3 rounded-lg text-white font-medium"
+            style={{
+              background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+            }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            Loading Dashboard...
+          </div>
         </div>
-      </main>
+      </SignedIn>
     </div>
-  );
+  )
 }

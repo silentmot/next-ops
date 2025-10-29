@@ -1,0 +1,38 @@
+{
+  "name": "@deskops/design-system",
+  "version": "1.0.0",
+  "description": "DeskOps Dashboard Design System - Tokens, Icons, and Components",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tokens": "./src/tokens/index.ts",
+    "./icons": "./src/icons/index.ts",
+    "./components": "./src/components/index.ts",
+    "./styles": "./src/styles/index.css"
+  },
+  "scripts": {
+    "dev": "vite demo",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "icons",
+    "dashboard",
+    "glassmorphism"
+  ],
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "lucide-react": "^0.395.0",
+    "framer-motion": "^11.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0"
+  }
+}
