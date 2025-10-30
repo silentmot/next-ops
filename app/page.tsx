@@ -11,7 +11,7 @@ export default function Home() {
             <div
               className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
               style={{
-                background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
+                background: "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
               }}
             >
               <span className="text-2xl font-bold text-white">OPS</span>
@@ -21,7 +21,7 @@ export default function Home() {
               className="text-5xl sm:text-6xl font-bold mb-6 leading-tight"
               style={{
                 background:
-                  "linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)",
+                  "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 50%, oklch(65.69% 0.241 3.18) 100%)",
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -38,8 +38,8 @@ export default function Home() {
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-white/60 mb-12"
               style={{
-                background: "rgba(255, 255, 255, 0.05)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
+                background: "oklch(100% 0 none / 0.05)",
+                border: "1px solid oklch(100% 0 none / 0.1)",
                 backdropFilter: "blur(10px)",
               }}
             >
@@ -54,8 +54,8 @@ export default function Home() {
             <div
               className="p-8 rounded-2xl text-center group hover:scale-105 transition-all duration-300"
               style={{
-                background: "rgba(255, 255, 255, 0.05)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
+                background: "oklch(100% 0 none / 0.05)",
+                border: "1px solid oklch(100% 0 none / 0.1)",
                 backdropFilter: "blur(20px)",
               }}
             >
@@ -89,8 +89,8 @@ export default function Home() {
                   className="w-full py-3 px-6 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   style={{
                     background:
-                      "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
-                    boxShadow: "0 4px 20px rgba(99, 102, 241, 0.3)",
+                      "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
+                    boxShadow: "0 4px 20px oklch(58.61% 0.203 264.05 / 0.3)",
                   }}
                 >
                   Sign In to Dashboard
@@ -102,8 +102,8 @@ export default function Home() {
             <div
               className="p-8 rounded-2xl text-center group hover:scale-105 transition-all duration-300"
               style={{
-                background: "rgba(255, 255, 255, 0.05)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
+                background: "oklch(100% 0 none / 0.05)",
+                border: "1px solid oklch(100% 0 none / 0.1)",
                 backdropFilter: "blur(20px)",
               }}
             >
@@ -137,8 +137,8 @@ export default function Home() {
                   className="w-full py-3 px-6 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   style={{
                     background:
-                      "linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)",
-                    boxShadow: "0 4px 20px rgba(139, 92, 246, 0.3)",
+                      "linear-gradient(135deg, oklch(66.52% 0.241 307.73) 0%, oklch(65.69% 0.241 3.18) 100%)",
+                    boxShadow: "0 4px 20px oklch(66.52% 0.241 307.73 / 0.3)",
                   }}
                 >
                   Create Account
@@ -179,8 +179,8 @@ export default function Home() {
                     key={feature.id}
                     className="p-6 rounded-lg text-center group hover:scale-105 transition-all duration-300"
                     style={{
-                      background: "rgba(255, 255, 255, 0.03)",
-                      border: "1px solid rgba(255, 255, 255, 0.08)",
+                      background: "oklch(100% 0 none / 0.03)",
+                      border: "1px solid oklch(100% 0 none / 0.08)",
                     }}
                   >
                     <div
@@ -205,7 +205,7 @@ export default function Home() {
           <div
             className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
             style={{
-              background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
+              background: "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
             }}
           >
             <span className="text-2xl font-bold text-white">OPS</span>
@@ -222,7 +222,7 @@ export default function Home() {
           <div
             className="inline-block px-6 py-3 rounded-lg text-white font-medium"
             style={{
-              background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
+              background: "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
             }}
           >
             Loading Dashboard...

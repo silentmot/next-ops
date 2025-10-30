@@ -113,12 +113,12 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
             background: tokens.colors.glass.medium,
             border: `1px solid ${tokens.colors.borders.light}`,
             backdropFilter: "blur(20px)",
-            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.1)",
+            boxShadow: "0 8px 32px oklch(0% 0 none / 0.1)",
           };
         case "elevated":
           return {
             background: tokens.colors.brand.surfaceElevated,
-            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.2)",
+            boxShadow: "0 20px 40px oklch(0% 0 none / 0.2)",
           };
         case "bordered":
           return {

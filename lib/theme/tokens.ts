@@ -8,62 +8,62 @@ export const designTokens = {
   // Core Brand Colors
   colors: {
     brand: {
-      primary: "#6366f1" as string,
-      secondary: "#8b5cf6" as string,
-      accent: "#ec4899" as string,
-      surface: "#0f0f23" as string,
-      surfaceElevated: "#1e1b4b" as string,
-      surfaceHighlight: "#312e81" as string,
+      primary: "oklch(58.61% 0.203 264.05)" as string,
+      secondary: "oklch(66.52% 0.241 307.73)" as string,
+      accent: "oklch(65.69% 0.241 3.18)" as string,
+      surface: "oklch(11.37% 0.032 264.05)" as string,
+      surfaceElevated: "oklch(25.62% 0.099 286.69)" as string,
+      surfaceHighlight: "oklch(33.16% 0.114 286.69)" as string,
     },
 
     // Gradient Definitions
     gradients: {
-      primary: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)" as string,
+      primary: "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)" as string,
       rainbow:
-        "linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)" as string,
+        "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 50%, oklch(65.69% 0.241 3.18) 100%)" as string,
       surface:
-        "linear-gradient(135deg, #0f0f23 0%, #1e1b4b 50%, #312e81 100%)" as string,
+        "linear-gradient(135deg, oklch(11.37% 0.032 264.05) 0%, oklch(25.62% 0.099 286.69) 50%, oklch(33.16% 0.114 286.69) 100%)" as string,
 
       // Feature-specific gradients
-      secure: "linear-gradient(135deg, #10b981 0%, #14b8a6 100%)" as string, // emerald to teal
-      fast: "linear-gradient(135deg, #eab308 0%, #ea580c 100%)" as string, // yellow to orange
-      beautiful: "linear-gradient(135deg, #ec4899 0%, #f43f5e 100%)" as string, // pink to rose
+      secure: "linear-gradient(135deg, oklch(68.31% 0.158 165.38) 0%, oklch(71.13% 0.144 193.14) 100%)" as string, // emerald to teal
+      fast: "linear-gradient(135deg, oklch(79.27% 0.153 96.96) 0%, oklch(71.28% 0.199 44.6) 100%)" as string, // yellow to orange
+      beautiful: "linear-gradient(135deg, oklch(65.69% 0.241 3.18) 0%, oklch(63.41% 0.241 14.13) 100%)" as string, // pink to rose
 
       // Authentication gradients
-      signIn: "linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)" as string, // blue to indigo
-      signUp: "linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%)" as string, // purple to purple
+      signIn: "linear-gradient(135deg, oklch(55.98% 0.155 254.62) 0%, oklch(58.61% 0.203 264.05) 100%)" as string, // blue to indigo
+      signUp: "linear-gradient(135deg, oklch(66.52% 0.241 307.73) 0%, oklch(69.54% 0.262 316.8) 100%)" as string, // purple to purple
     },
 
     // Semantic Colors
     semantic: {
-      success: "#10b981",
-      warning: "#f59e0b",
-      error: "#ef4444",
-      info: "#6366f1",
+      success: "oklch(68.31% 0.158 165.38)",
+      warning: "oklch(76.96% 0.164 79.52)",
+      error: "oklch(62.8% 0.258 27.33)",
+      info: "oklch(58.61% 0.203 264.05)",
     },
 
     // Glass/Transparency System
     glass: {
-      subtle: "rgba(255, 255, 255, 0.03)",
-      light: "rgba(255, 255, 255, 0.05)",
-      medium: "rgba(255, 255, 255, 0.08)",
-      strong: "rgba(255, 255, 255, 0.12)",
+      subtle: "oklch(100% 0 none / 0.03)",
+      light: "oklch(100% 0 none / 0.05)",
+      medium: "oklch(100% 0 none / 0.08)",
+      strong: "oklch(100% 0 none / 0.12)",
     },
 
     // Border System
     borders: {
-      subtle: "rgba(255, 255, 255, 0.08)",
-      light: "rgba(255, 255, 255, 0.1)",
-      medium: "rgba(255, 255, 255, 0.15)",
-      strong: "rgba(255, 255, 255, 0.2)",
+      subtle: "oklch(100% 0 none / 0.08)",
+      light: "oklch(100% 0 none / 0.1)",
+      medium: "oklch(100% 0 none / 0.15)",
+      strong: "oklch(100% 0 none / 0.2)",
     },
 
     // Text Colors
     text: {
-      primary: "#ffffff",
-      secondary: "rgba(255, 255, 255, 0.8)",
-      tertiary: "rgba(255, 255, 255, 0.6)",
-      muted: "rgba(255, 255, 255, 0.4)",
+      primary: "oklch(100% 0 none)",
+      secondary: "oklch(100% 0 none / 0.8)",
+      tertiary: "oklch(100% 0 none / 0.6)",
+      muted: "oklch(100% 0 none / 0.4)",
     },
   },
 
@@ -145,24 +145,24 @@ export const designTokens = {
 
   // Shadow System
   shadows: {
-    subtle: "0 1px 3px rgba(0, 0, 0, 0.1)",
-    soft: "0 4px 6px rgba(0, 0, 0, 0.1)",
-    medium: "0 10px 15px rgba(0, 0, 0, 0.1)",
-    large: "0 20px 25px rgba(0, 0, 0, 0.1)",
-    xl: "0 25px 50px rgba(0, 0, 0, 0.2)",
+    subtle: "0 1px 3px oklch(0% 0 none / 0.1)",
+    soft: "0 4px 6px oklch(0% 0 none / 0.1)",
+    medium: "0 10px 15px oklch(0% 0 none / 0.1)",
+    large: "0 20px 25px oklch(0% 0 none / 0.1)",
+    xl: "0 25px 50px oklch(0% 0 none / 0.2)",
 
     // Glow effects
     glow: {
-      subtle: "0 0 10px rgba(99, 102, 241, 0.1)",
-      medium: "0 0 20px rgba(99, 102, 241, 0.2)",
-      strong: "0 0 30px rgba(99, 102, 241, 0.3)",
+      subtle: "0 0 10px oklch(58.61% 0.203 264.05 / 0.1)",
+      medium: "0 0 20px oklch(58.61% 0.203 264.05 / 0.2)",
+      strong: "0 0 30px oklch(58.61% 0.203 264.05 / 0.3)",
     },
 
     // Branded shadows
     brand: {
-      primary: "0 4px 20px rgba(99, 102, 241, 0.3)",
-      secondary: "0 4px 20px rgba(139, 92, 246, 0.3)",
-      accent: "0 4px 20px rgba(236, 72, 153, 0.3)",
+      primary: "0 4px 20px oklch(58.61% 0.203 264.05 / 0.3)",
+      secondary: "0 4px 20px oklch(66.52% 0.241 307.73 / 0.3)",
+      accent: "0 4px 20px oklch(65.69% 0.241 3.18 / 0.3)",
     },
   },
 
