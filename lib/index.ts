@@ -12,6 +12,8 @@ export {
   GradientText,
   ThemeSwitcher,
 } from "./components";
+// DeskOps System Constants - Centralized Configuration
+export * from "./constants";
 export type { DesignTokens } from "./DesignTokens";
 // Core theme system
 export { ThemeProvider, type ThemeVariant, useTheme } from "./provider";

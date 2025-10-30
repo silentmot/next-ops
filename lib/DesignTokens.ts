@@ -68,64 +68,80 @@ export const LightTheme = {
 // ============================================================================
 
 /**
+ * Typography Scaling Factor
+ * Source: Enhanced typography system specification
+ * Used for calculating font sizes in a modular scale
+ */
+export const TextScaling = 1.067 as const;
+
+/**
  * Font Families
- * Source: Inferred from Next.js 15+ best practices
+ * Source: Enhanced typography system
+ * Base: Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif
+ * Mono: Geist Mono (preserved for code blocks)
  */
 export const FontFamily = {
-  sans: "var(--font-geist-sans)",
+  base: "var(--base-font-family)",
+  heading: "var(--heading-font-family)",
+  anchor: "var(--anchor-font-family)",
+  sans: "Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif",
   mono: "var(--font-geist-mono)",
 } as const;
 
 /**
  * Font Sizes
- * Source: Extracted from component specifications in DeskOps-DashboardGuide.md
+ * Source: Modular scale based on text-scaling: 1.067
+ * Base font size: 1rem (16px)
  */
 export const FontSize = {
   xs: "0.75rem", // 12px
   sm: "0.875rem", // 14px
-  base: "1rem", // 16px
-  lg: "1.125rem", // 18px
-  xl: "1.25rem", // 20px
-  "2xl": "1.5rem", // 24px - Line 1099: Header title
-  "3xl": "1.875rem", // 30px - Line 1073: Metric card value
-  "4xl": "2.25rem", // 36px
-  "5xl": "3rem", // 48px
+  base: "1rem", // 16px - Base size
+  lg: "1.067rem", // ~17px - 1 step up
+  xl: "1.138rem", // ~18.2px - 2 steps up
+  "2xl": "1.214rem", // ~19.4px - 3 steps up
+  "3xl": "1.295rem", // ~20.7px - 4 steps up
+  "4xl": "1.382rem", // ~22.1px - 5 steps up
+  "5xl": "1.475rem", // ~23.6px - 6 steps up
+  "6xl": "1.574rem", // ~25.2px - 7 steps up
 } as const;
 
 /**
  * Font Weights
- * Source: Standard design system weights
+ * Source: Enhanced typography system
  */
 export const FontWeight = {
-  normal: 400,
+  normal: 400, // var(--base-font-weight)
   medium: 500,
-  semibold: 600, // Line 1121: Chart card title
-  bold: 700, // Line 1073: Metric card value, Line 1099: Dashboard header
+  semibold: 600,
+  bold: 700,
   extrabold: 800,
 } as const;
 
 /**
  * Line Heights
- * Source: Standard design system ratios + tokens.ts Line 105
+ * Source: Enhanced typography system with inherit support
  */
 export const LineHeight = {
   tight: 1.2,
-  snug: 1.375, // tokens.ts Line 105
+  snug: 1.375,
   normal: 1.5,
   relaxed: 1.75,
   loose: 2,
+  inherit: "inherit", // var(--base-line-height)
 } as const;
 
 /**
  * Letter Spacing
- * Source: tokens.ts Lines 111-117
+ * Source: Enhanced typography system
  */
 export const LetterSpacing = {
-  tighter: "-0.05em", // tokens.ts Line 112
-  tight: "-0.025em", // tokens.ts Line 113
-  normal: "0em", // tokens.ts Line 114
-  wide: "0.025em", // tokens.ts Line 115
-  wider: "0.05em", // tokens.ts Line 116
+  tighter: "-0.05em",
+  tight: "-0.025em",
+  normal: "0em", // var(--base-letter-spacing)
+  wide: "0.025em",
+  wider: "0.05em",
+  inherit: "inherit", // var(--heading-letter-spacing), var(--anchor-letter-spacing)
 } as const;
 
 // ============================================================================
@@ -787,6 +803,7 @@ export const DesignTokens = {
 
   // Typography
   typography: {
+    textScaling: TextScaling,
     fontFamily: FontFamily,
     fontSize: FontSize,
     fontWeight: FontWeight,

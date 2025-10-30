@@ -43,7 +43,7 @@
 
 1. [Project Setup](#project-setup)
 2. [File Structure](#file-structure)
-3. [Installation Steps](#installation-steps)
+3. [addation Steps](#addation-steps)
 4. [Design Token Usage](#design-token-usage)
 5. [Tailwind Configuration](#tailwind-configuration)
 6. [Theme Implementation](#theme-implementation)
@@ -85,13 +85,13 @@ npx create-next-app@latest deskops-dashboard
 cd deskops-dashboard
 
 # Core dependencies - Source: DeskOps-DashboardGuide.md Lines 9-14
-npm install framer-motion recharts zustand lucide-react
+bun add framer-motion recharts zustand lucide-react
 
 # Optional: Clerk for authentication (if using auth features)
-npm install @clerk/nextjs
+bun add @clerk/nextjs
 
 # Development dependencies
-npm install -D @types/node @types/react @types/react-dom
+bun add -D @types/node @types/react @types/react-dom
 ```
 
 ---
@@ -155,7 +155,7 @@ deskops-dashboard/
 
 ---
 
-## Installation Steps
+## addation Steps
 
 ### Step 1: Place Design System Files
 

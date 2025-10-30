@@ -14,6 +14,16 @@ import { AppLoadingWrapper } from "@components/AppLoadingWrapper";
 import { DesignTokens } from "@/lib/DesignTokens";
 import "./globals.css";
 
+/**
+ * Font Configuration
+ *
+ * Primary Typography: Avenir, Montserrat, Corbel, URW Gothic, source-sans-pro (defined in globals.css)
+ * - Set via --base-font-family CSS variable
+ * - Applied to body via globals.css
+ *
+ * Geist Sans: Available as fallback via --font-geist-sans (not used by default)
+ * Geist Mono: Used for code blocks via --font-geist-mono
+ */
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -46,9 +56,11 @@ const clerkAppearance = {
     colorTextSecondary: DesignTokens.theme.dark.text.secondary,
     colorTextOnPrimaryBackground: DesignTokens.theme.dark.text.interactive,
 
-    // Typography
-    fontFamily: '"Geist", -apple-system, BlinkMacSystemFont, sans-serif',
-    fontFamilyButtons: '"Geist", -apple-system, BlinkMacSystemFont, sans-serif',
+    // Typography - Enhanced with new font family
+    fontFamily:
+      'Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, -apple-system, BlinkMacSystemFont, sans-serif',
+    fontFamilyButtons:
+      'Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, -apple-system, BlinkMacSystemFont, sans-serif',
     fontSize: "16px",
     fontWeight: {
       normal: 400,
