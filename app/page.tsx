@@ -11,7 +11,8 @@ export default function Home() {
             <div
               className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
               style={{
-                background: "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
+                background:
+                  "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
               }}
             >
               <span className="text-2xl font-bold text-white">OPS</span>
@@ -205,7 +206,8 @@ export default function Home() {
           <div
             className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
             style={{
-              background: "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
+              background:
+                "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
             }}
           >
             <span className="text-2xl font-bold text-white">OPS</span>
@@ -222,7 +224,8 @@ export default function Home() {
           <div
             className="inline-block px-6 py-3 rounded-lg text-white font-medium"
             style={{
-              background: "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
+              background:
+                "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
             }}
           >
             Loading Dashboard...

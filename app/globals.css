@@ -154,7 +154,12 @@
 
   /* Sophisticated loading states */
   .cl-spinner {
-    background: conic-gradient(from 0deg, transparent, oklch(58.61% 0.203 264.05), transparent);
+    background: conic-gradient(
+      from 0deg,
+      transparent,
+      oklch(58.61% 0.203 264.05),
+      transparent
+    );
     border-radius: 50%;
     animation: spin 1s linear infinite;
   }

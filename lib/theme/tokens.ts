@@ -18,20 +18,25 @@ export const designTokens = {
 
     // Gradient Definitions
     gradients: {
-      primary: "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)" as string,
+      primary:
+        "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)" as string,
       rainbow:
         "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 50%, oklch(65.69% 0.241 3.18) 100%)" as string,
       surface:
         "linear-gradient(135deg, oklch(11.37% 0.032 264.05) 0%, oklch(25.62% 0.099 286.69) 50%, oklch(33.16% 0.114 286.69) 100%)" as string,
 
       // Feature-specific gradients
-      secure: "linear-gradient(135deg, oklch(68.31% 0.158 165.38) 0%, oklch(71.13% 0.144 193.14) 100%)" as string, // emerald to teal
+      secure:
+        "linear-gradient(135deg, oklch(68.31% 0.158 165.38) 0%, oklch(71.13% 0.144 193.14) 100%)" as string, // emerald to teal
       fast: "linear-gradient(135deg, oklch(79.27% 0.153 96.96) 0%, oklch(71.28% 0.199 44.6) 100%)" as string, // yellow to orange
-      beautiful: "linear-gradient(135deg, oklch(65.69% 0.241 3.18) 0%, oklch(63.41% 0.241 14.13) 100%)" as string, // pink to rose
+      beautiful:
+        "linear-gradient(135deg, oklch(65.69% 0.241 3.18) 0%, oklch(63.41% 0.241 14.13) 100%)" as string, // pink to rose
 
       // Authentication gradients
-      signIn: "linear-gradient(135deg, oklch(55.98% 0.155 254.62) 0%, oklch(58.61% 0.203 264.05) 100%)" as string, // blue to indigo
-      signUp: "linear-gradient(135deg, oklch(66.52% 0.241 307.73) 0%, oklch(69.54% 0.262 316.8) 100%)" as string, // purple to purple
+      signIn:
+        "linear-gradient(135deg, oklch(55.98% 0.155 254.62) 0%, oklch(58.61% 0.203 264.05) 100%)" as string, // blue to indigo
+      signUp:
+        "linear-gradient(135deg, oklch(66.52% 0.241 307.73) 0%, oklch(69.54% 0.262 316.8) 100%)" as string, // purple to purple
     },
 
     // Semantic Colors

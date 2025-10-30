@@ -10,6 +10,7 @@ import {
 } from "@clerk/nextjs";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "../lib/theme";
+import { AppLoadingWrapper } from "../components/AppLoadingWrapper";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -360,7 +361,7 @@ export default function RootLayout({
           {/* Main content area */}
           <main className="relative z-10">
             <ThemeProvider defaultVariant="cosmic" defaultDarkMode={true}>
-              {children}
+              <AppLoadingWrapper>{children}</AppLoadingWrapper>
             </ThemeProvider>
           </main>
         </body>
