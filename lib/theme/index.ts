@@ -4,18 +4,17 @@
  * Created: October 29, 2025
  */
 
-// Core theme system
-export { ThemeProvider, useTheme, type ThemeVariant } from './provider'
-export { designTokens, type DesignTokens } from './tokens'
-
 // Styled components
 export {
   Button,
   Card,
-  GradientText,
   Container,
-  ThemeSwitcher
-} from './components'
+  GradientText,
+  ThemeSwitcher,
+} from "./components";
+// Core theme system
+export { ThemeProvider, type ThemeVariant, useTheme } from "./provider";
+export { type DesignTokens, designTokens } from "./tokens";
 
 // Complete theme system ready for use
 // All components are fully typed with TypeScript for excellent DX

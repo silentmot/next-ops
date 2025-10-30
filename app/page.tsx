@@ -1,5 +1,5 @@
-import { SignInButton, SignUpButton, SignedIn, SignedOut } from '@clerk/nextjs'
-import { Sparkles, Shield, Zap, Palette } from 'lucide-react'
+import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
+import { Palette, Shield, Sparkles, Zap } from "lucide-react";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
             <div
               className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
               style={{
-                background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+                background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
               }}
             >
               <span className="text-2xl font-bold text-white">OPS</span>
@@ -20,26 +20,27 @@ export default function Home() {
             <h1
               className="text-5xl sm:text-6xl font-bold mb-6 leading-tight"
               style={{
-                background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
+                background:
+                  "linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%)",
+                backgroundClip: "text",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
               }}
             >
               Operations Portal
             </h1>
 
             <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Your gateway to advanced operations management.
-              Secure, powerful, and beautifully designed for the modern enterprise.
+              Your gateway to advanced operations management. Secure, powerful,
+              and beautifully designed for the modern enterprise.
             </p>
 
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-white/60 mb-12"
               style={{
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(10px)',
+                background: "rgba(255, 255, 255, 0.05)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(10px)",
               }}
             >
               <Sparkles className="w-4 h-4" />
@@ -53,18 +54,31 @@ export default function Home() {
             <div
               className="p-8 rounded-2xl text-center group hover:scale-105 transition-all duration-300"
               style={{
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(20px)',
+                background: "rgba(255, 255, 255, 0.05)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(20px)",
               }}
             >
               <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-linear-to-r from-blue-500 to-indigo-600 flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                <svg
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                  />
                 </svg>
               </div>
 
-              <h3 className="text-2xl font-semibold text-white mb-3">Welcome Back</h3>
+              <h3 className="text-2xl font-semibold text-white mb-3">
+                Welcome Back
+              </h3>
               <p className="text-white/70 mb-6">
                 Continue your operations journey with secure authentication
               </p>
@@ -74,8 +88,9 @@ export default function Home() {
                   type="button"
                   className="w-full py-3 px-6 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   style={{
-                    background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
-                    boxShadow: '0 4px 20px rgba(99, 102, 241, 0.3)',
+                    background:
+                      "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
+                    boxShadow: "0 4px 20px rgba(99, 102, 241, 0.3)",
                   }}
                 >
                   Sign In to Dashboard
@@ -87,18 +102,31 @@ export default function Home() {
             <div
               className="p-8 rounded-2xl text-center group hover:scale-105 transition-all duration-300"
               style={{
-                background: 'rgba(255, 255, 255, 0.05)',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                backdropFilter: 'blur(20px)',
+                background: "rgba(255, 255, 255, 0.05)",
+                border: "1px solid rgba(255, 255, 255, 0.1)",
+                backdropFilter: "blur(20px)",
               }}
             >
               <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-linear-to-r from-purple-500 to-pink-600 flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+                <svg
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+                  />
                 </svg>
               </div>
 
-              <h3 className="text-2xl font-semibold text-white mb-3">Get Started</h3>
+              <h3 className="text-2xl font-semibold text-white mb-3">
+                Get Started
+              </h3>
               <p className="text-white/70 mb-6">
                 Join the operations platform and unlock powerful features
               </p>
@@ -108,8 +136,9 @@ export default function Home() {
                   type="button"
                   className="w-full py-3 px-6 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   style={{
-                    background: 'linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)',
-                    boxShadow: '0 4px 20px rgba(139, 92, 246, 0.3)',
+                    background:
+                      "linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%)",
+                    boxShadow: "0 4px 20px rgba(139, 92, 246, 0.3)",
                   }}
                 >
                   Create Account
@@ -123,35 +152,35 @@ export default function Home() {
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
               {[
                 {
-                  id: 'secure',
+                  id: "secure",
                   icon: Shield,
-                  title: 'Secure',
-                  desc: 'Enterprise-grade security',
-                  gradient: 'from-emerald-500 to-teal-600'
+                  title: "Secure",
+                  desc: "Enterprise-grade security",
+                  gradient: "from-emerald-500 to-teal-600",
                 },
                 {
-                  id: 'fast',
+                  id: "fast",
                   icon: Zap,
-                  title: 'Fast',
-                  desc: 'Lightning-fast operations',
-                  gradient: 'from-yellow-500 to-orange-600'
+                  title: "Fast",
+                  desc: "Lightning-fast operations",
+                  gradient: "from-yellow-500 to-orange-600",
                 },
                 {
-                  id: 'beautiful',
+                  id: "beautiful",
                   icon: Palette,
-                  title: 'Beautiful',
-                  desc: 'Modern, intuitive design',
-                  gradient: 'from-pink-500 to-rose-600'
-                }
+                  title: "Beautiful",
+                  desc: "Modern, intuitive design",
+                  gradient: "from-pink-500 to-rose-600",
+                },
               ].map((feature) => {
-                const IconComponent = feature.icon
+                const IconComponent = feature.icon;
                 return (
                   <div
                     key={feature.id}
                     className="p-6 rounded-lg text-center group hover:scale-105 transition-all duration-300"
                     style={{
-                      background: 'rgba(255, 255, 255, 0.03)',
-                      border: '1px solid rgba(255, 255, 255, 0.08)',
+                      background: "rgba(255, 255, 255, 0.03)",
+                      border: "1px solid rgba(255, 255, 255, 0.08)",
                     }}
                   >
                     <div
@@ -159,10 +188,12 @@ export default function Home() {
                     >
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <h4 className="text-lg font-semibold text-white mb-2">{feature.title}</h4>
+                    <h4 className="text-lg font-semibold text-white mb-2">
+                      {feature.title}
+                    </h4>
                     <p className="text-white/60 text-sm">{feature.desc}</p>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
@@ -174,7 +205,7 @@ export default function Home() {
           <div
             className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
             style={{
-              background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+              background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
             }}
           >
             <span className="text-2xl font-bold text-white">OPS</span>
@@ -191,7 +222,7 @@ export default function Home() {
           <div
             className="inline-block px-6 py-3 rounded-lg text-white font-medium"
             style={{
-              background: 'linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)',
+              background: "linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%)",
             }}
           >
             Loading Dashboard...
@@ -199,5 +230,5 @@ export default function Home() {
         </div>
       </SignedIn>
     </div>
-  )
+  );
 }

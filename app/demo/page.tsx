@@ -4,40 +4,36 @@
  * Created: October 29, 2025
  */
 
-'use client'
+"use client";
 
+import {
+  Code,
+  Heart,
+  Layers,
+  Palette,
+  Shield,
+  Sparkles,
+  Star,
+  Zap,
+} from "lucide-react";
 import {
   Button,
   Card,
-  GradientText,
   Container,
+  GradientText,
   ThemeSwitcher,
-  useTheme
-} from '../../lib/theme'
-import {
-  Sparkles,
-  Palette,
-  Zap,
-  Shield,
-  Star,
-  Heart,
-  Code,
-  Layers
-} from 'lucide-react'
+  useTheme,
+} from "../../lib/theme";
 
 export default function ThemeDemo() {
-  const { tokens, variant } = useTheme()
+  const { tokens, variant } = useTheme();
 
   return (
     <div className="min-h-screen p-8 space-y-12">
       <Container size="xl" center>
         {/* Header */}
         <div className="text-center mb-12">
-          <GradientText
-            as="h1"
-            gradient="rainbow"
-            className="text-6xl mb-4"
-          >
+          <GradientText as="h1" gradient="rainbow" className="text-6xl mb-4">
             OPS Design System
           </GradientText>
           <GradientText
@@ -48,8 +44,8 @@ export default function ThemeDemo() {
             Museum-Quality Theme Architecture
           </GradientText>
           <p className="text-white/70 mt-4 text-lg max-w-2xl mx-auto">
-            A comprehensive design system with dynamic theming, glassmorphic components,
-            and professional-grade styling architecture.
+            A comprehensive design system with dynamic theming, glassmorphic
+            components, and professional-grade styling architecture.
           </p>
 
           <div className="mt-8 flex justify-center">
@@ -71,7 +67,9 @@ export default function ThemeDemo() {
                   className="w-16 h-16 rounded-xl mx-auto mb-4"
                   style={{ background: tokens.colors.gradients.primary }}
                 />
-                <h3 className="text-white font-semibold mb-2">Primary Gradient</h3>
+                <h3 className="text-white font-semibold mb-2">
+                  Primary Gradient
+                </h3>
                 <p className="text-white/60 text-sm">Brand identity color</p>
               </div>
             </Card>
@@ -82,7 +80,9 @@ export default function ThemeDemo() {
                   className="w-16 h-16 rounded-xl mx-auto mb-4"
                   style={{ background: tokens.colors.gradients.rainbow }}
                 />
-                <h3 className="text-white font-semibold mb-2">Rainbow Gradient</h3>
+                <h3 className="text-white font-semibold mb-2">
+                  Rainbow Gradient
+                </h3>
                 <p className="text-white/60 text-sm">Multi-color harmony</p>
               </div>
             </Card>
@@ -137,15 +137,9 @@ export default function ThemeDemo() {
                   </Button>
                 </div>
                 <div className="flex flex-wrap gap-3">
-                  <Button variant="secondary">
-                    Secondary
-                  </Button>
-                  <Button variant="ghost">
-                    Ghost
-                  </Button>
-                  <Button variant="glass">
-                    Glass
-                  </Button>
+                  <Button variant="secondary">Secondary</Button>
+                  <Button variant="ghost">Ghost</Button>
+                  <Button variant="glass">Glass</Button>
                 </div>
               </div>
             </Card>
@@ -162,7 +156,9 @@ export default function ThemeDemo() {
                     <Shield className="w-8 h-8 text-blue-400" />
                     <div>
                       <h4 className="text-white font-medium">Glass Card</h4>
-                      <p className="text-white/60 text-sm">Glassmorphic design</p>
+                      <p className="text-white/60 text-sm">
+                        Glassmorphic design
+                      </p>
                     </div>
                   </div>
                 </Card>
@@ -172,7 +168,9 @@ export default function ThemeDemo() {
                     <Star className="w-8 h-8 text-yellow-400" />
                     <div>
                       <h4 className="text-white font-medium">Elevated Card</h4>
-                      <p className="text-white/60 text-sm">Enhanced shadow depth</p>
+                      <p className="text-white/60 text-sm">
+                        Enhanced shadow depth
+                      </p>
                     </div>
                   </div>
                 </Card>
@@ -182,7 +180,9 @@ export default function ThemeDemo() {
                     <Heart className="w-8 h-8 text-pink-400" />
                     <div>
                       <h4 className="text-white font-medium">Bordered Card</h4>
-                      <p className="text-white/60 text-sm">Clean border style</p>
+                      <p className="text-white/60 text-sm">
+                        Clean border style
+                      </p>
                     </div>
                   </div>
                 </Card>
@@ -210,35 +210,46 @@ export default function ThemeDemo() {
                 <GradientText as="h2" gradient="rainbow" className="text-4xl">
                   Heading 2 - Rainbow Gradient
                 </GradientText>
-                <p className="text-white/60 mt-2">4xl / 36px - Section headings</p>
+                <p className="text-white/60 mt-2">
+                  4xl / 36px - Section headings
+                </p>
               </div>
 
               <div>
                 <GradientText as="h3" className="text-2xl">
                   Heading 3 - Primary Gradient
                 </GradientText>
-                <p className="text-white/60 mt-2">2xl / 24px - Subsection headings</p>
+                <p className="text-white/60 mt-2">
+                  2xl / 24px - Subsection headings
+                </p>
               </div>
 
               <div>
                 <p className="text-white text-lg">
-                  Body Large - Regular text for important content and descriptions.
+                  Body Large - Regular text for important content and
+                  descriptions.
                 </p>
-                <p className="text-white/60 mt-1">lg / 18px - Enhanced readability</p>
+                <p className="text-white/60 mt-1">
+                  lg / 18px - Enhanced readability
+                </p>
               </div>
 
               <div>
                 <p className="text-white">
                   Body Regular - Standard text for most content and UI elements.
                 </p>
-                <p className="text-white/60 mt-1">base / 16px - Default body text</p>
+                <p className="text-white/60 mt-1">
+                  base / 16px - Default body text
+                </p>
               </div>
 
               <div>
                 <p className="text-white text-sm">
                   Body Small - Secondary information and metadata.
                 </p>
-                <p className="text-white/60 mt-1">sm / 14px - Supporting text</p>
+                <p className="text-white/60 mt-1">
+                  sm / 14px - Supporting text
+                </p>
               </div>
             </div>
           </Card>
@@ -254,42 +265,53 @@ export default function ThemeDemo() {
             {[
               {
                 icon: Palette,
-                title: 'Dynamic Theming',
-                description: 'Four carefully crafted theme variants with real-time switching',
-                gradient: 'from-purple-500 to-pink-500'
+                title: "Dynamic Theming",
+                description:
+                  "Four carefully crafted theme variants with real-time switching",
+                gradient: "from-purple-500 to-pink-500",
               },
               {
                 icon: Layers,
-                title: 'Glassmorphic Design',
-                description: 'Modern glass effects with proper backdrop filtering',
-                gradient: 'from-blue-500 to-cyan-500'
+                title: "Glassmorphic Design",
+                description:
+                  "Modern glass effects with proper backdrop filtering",
+                gradient: "from-blue-500 to-cyan-500",
               },
               {
                 icon: Code,
-                title: 'TypeScript First',
-                description: 'Fully typed components with excellent developer experience',
-                gradient: 'from-green-500 to-emerald-500'
+                title: "TypeScript First",
+                description:
+                  "Fully typed components with excellent developer experience",
+                gradient: "from-green-500 to-emerald-500",
               },
               {
                 icon: Zap,
-                title: 'Performance Optimized',
-                description: 'Memoized theme calculations and efficient re-renders',
-                gradient: 'from-yellow-500 to-orange-500'
+                title: "Performance Optimized",
+                description:
+                  "Memoized theme calculations and efficient re-renders",
+                gradient: "from-yellow-500 to-orange-500",
               },
               {
                 icon: Shield,
-                title: 'Design Tokens',
-                description: 'Centralized design system with consistent spacing and colors',
-                gradient: 'from-red-500 to-pink-500'
+                title: "Design Tokens",
+                description:
+                  "Centralized design system with consistent spacing and colors",
+                gradient: "from-red-500 to-pink-500",
               },
               {
                 icon: Sparkles,
-                title: 'Premium Quality',
-                description: 'Museum-grade attention to detail and professional polish',
-                gradient: 'from-indigo-500 to-purple-500'
-              }
+                title: "Premium Quality",
+                description:
+                  "Museum-grade attention to detail and professional polish",
+                gradient: "from-indigo-500 to-purple-500",
+              },
             ].map((feature) => (
-              <Card key={feature.title} variant="glass" hover className="text-center">
+              <Card
+                key={feature.title}
+                variant="glass"
+                hover
+                className="text-center"
+              >
                 <div
                   className={`w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-linear-to-br ${feature.gradient}`}
                 >
@@ -298,9 +320,7 @@ export default function ThemeDemo() {
                 <h3 className="text-white text-xl font-semibold mb-3">
                   {feature.title}
                 </h3>
-                <p className="text-white/70">
-                  {feature.description}
-                </p>
+                <p className="text-white/70">{feature.description}</p>
               </Card>
             ))}
           </div>
@@ -317,11 +337,19 @@ export default function ThemeDemo() {
               theming, professional components, and enterprise-grade quality.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="primary" size="lg" className="flex items-center gap-2">
+              <Button
+                variant="primary"
+                size="lg"
+                className="flex items-center gap-2"
+              >
                 <Code className="w-5 h-5" />
                 View Source Code
               </Button>
-              <Button variant="glass" size="lg" className="flex items-center gap-2">
+              <Button
+                variant="glass"
+                size="lg"
+                className="flex items-center gap-2"
+              >
                 <Sparkles className="w-5 h-5" />
                 Explore Components
               </Button>
@@ -330,5 +358,5 @@ export default function ThemeDemo() {
         </section>
       </Container>
     </div>
-  )
+  );
 }

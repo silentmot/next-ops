@@ -1,0 +1,32 @@
+[install]
+
+# whether to install optionalDependencies
+optional = true
+
+# whether to install devDependencies
+dev = true
+
+# whether to install peerDependencies
+peer = true
+
+# equivalent to `--production` flag
+production = false
+
+# equivalent to `--save-text-lockfile` flag
+saveTextLockfile = false
+
+# equivalent to `--frozen-lockfile` flag
+frozenLockfile = false
+
+# equivalent to `--dry-run` flag
+dryRun = false
+
+# installation strategy: "hoisted" or "isolated"
+# default: "hoisted" (for single-project projects)
+# default: "isolated" (for monorepo projects)
+linker = "isolated"
+
+
+# minimum age config
+# minimumReleaseAge = 259200 # seconds
+minimumReleaseAgeExcludes = ["@types/node", "typescript"]
