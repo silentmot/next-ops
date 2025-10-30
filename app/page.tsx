@@ -1,5 +1,6 @@
 import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
 import { Palette, Shield, Sparkles, Zap } from "lucide-react";
+import { DesignTokens } from "@/lib/DesignTokens";
 
 export default function Home() {
   return (
@@ -11,8 +12,7 @@ export default function Home() {
             <div
               className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
               style={{
-                background:
-                  "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
+                background: DesignTokens.gradient.signIn.css,
               }}
             >
               <span className="text-2xl font-bold text-white">OPS</span>
@@ -21,8 +21,7 @@ export default function Home() {
             <h1
               className="text-5xl sm:text-6xl font-bold mb-6 leading-tight"
               style={{
-                background:
-                  "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 50%, oklch(65.69% 0.241 3.18) 100%)",
+                background: DesignTokens.gradient.rainbow.css,
                 backgroundClip: "text",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
@@ -39,9 +38,9 @@ export default function Home() {
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-white/60 mb-12"
               style={{
-                background: "oklch(100% 0 none / 0.05)",
-                border: "1px solid oklch(100% 0 none / 0.1)",
-                backdropFilter: "blur(10px)",
+                background: DesignTokens.glassOpacity.light,
+                border: `1px solid ${DesignTokens.borderOpacity.light}`,
+                backdropFilter: DesignTokens.backdropBlur.md,
               }}
             >
               <Sparkles className="w-4 h-4" />
@@ -55,9 +54,9 @@ export default function Home() {
             <div
               className="p-8 rounded-2xl text-center group hover:scale-105 transition-all duration-300"
               style={{
-                background: "oklch(100% 0 none / 0.05)",
-                border: "1px solid oklch(100% 0 none / 0.1)",
-                backdropFilter: "blur(20px)",
+                background: DesignTokens.glassOpacity.light,
+                border: `1px solid ${DesignTokens.borderOpacity.light}`,
+                backdropFilter: DesignTokens.backdropBlur.lg,
               }}
             >
               <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-linear-to-r from-blue-500 to-indigo-600 flex items-center justify-center">
@@ -89,9 +88,8 @@ export default function Home() {
                   type="button"
                   className="w-full py-3 px-6 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   style={{
-                    background:
-                      "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
-                    boxShadow: "0 4px 20px oklch(58.61% 0.203 264.05 / 0.3)",
+                    background: DesignTokens.gradient.signIn.css,
+                    boxShadow: DesignTokens.boxShadow.brand.primary,
                   }}
                 >
                   Sign In to Dashboard
@@ -103,9 +101,9 @@ export default function Home() {
             <div
               className="p-8 rounded-2xl text-center group hover:scale-105 transition-all duration-300"
               style={{
-                background: "oklch(100% 0 none / 0.05)",
-                border: "1px solid oklch(100% 0 none / 0.1)",
-                backdropFilter: "blur(20px)",
+                background: DesignTokens.glassOpacity.light,
+                border: `1px solid ${DesignTokens.borderOpacity.light}`,
+                backdropFilter: DesignTokens.backdropBlur.lg,
               }}
             >
               <div className="w-12 h-12 mx-auto mb-4 rounded-lg bg-linear-to-r from-purple-500 to-pink-600 flex items-center justify-center">
@@ -137,9 +135,8 @@ export default function Home() {
                   type="button"
                   className="w-full py-3 px-6 rounded-lg font-medium text-white transition-all duration-300 hover:scale-105 hover:shadow-lg"
                   style={{
-                    background:
-                      "linear-gradient(135deg, oklch(66.52% 0.241 307.73) 0%, oklch(65.69% 0.241 3.18) 100%)",
-                    boxShadow: "0 4px 20px oklch(66.52% 0.241 307.73 / 0.3)",
+                    background: DesignTokens.gradient.signUp.css,
+                    boxShadow: DesignTokens.boxShadow.brand.secondary,
                   }}
                 >
                   Create Account
@@ -180,8 +177,8 @@ export default function Home() {
                     key={feature.id}
                     className="p-6 rounded-lg text-center group hover:scale-105 transition-all duration-300"
                     style={{
-                      background: "oklch(100% 0 none / 0.03)",
-                      border: "1px solid oklch(100% 0 none / 0.08)",
+                      background: DesignTokens.glassOpacity.subtle,
+                      border: `1px solid ${DesignTokens.borderOpacity.medium}`,
                     }}
                   >
                     <div
@@ -206,8 +203,7 @@ export default function Home() {
           <div
             className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
             style={{
-              background:
-                "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
+              background: DesignTokens.gradient.signIn.css,
             }}
           >
             <span className="text-2xl font-bold text-white">OPS</span>
@@ -224,8 +220,7 @@ export default function Home() {
           <div
             className="inline-block px-6 py-3 rounded-lg text-white font-medium"
             style={{
-              background:
-                "linear-gradient(135deg, oklch(58.61% 0.203 264.05) 0%, oklch(66.52% 0.241 307.73) 100%)",
+              background: DesignTokens.gradient.signIn.css,
             }}
           >
             Loading Dashboard...

@@ -7,7 +7,8 @@
 "use client";
 
 import { useState } from "react";
-import { useTheme } from "../../lib/theme";
+import { useTheme } from "@/lib";
+import { DesignTokens } from "@/lib/DesignTokens";
 
 interface PageTransitionLoaderProps {
   isVisible: boolean;
@@ -22,7 +23,7 @@ export function PageTransitionLoader({ isVisible }: PageTransitionLoaderProps) {
     <div
       className="fixed inset-0 z-40 flex items-center justify-center backdrop-blur-sm transition-all duration-300"
       style={{
-        background: "oklch(0 0 0 / 0.3)",
+        background: `oklch(0 0 0 / ${DesignTokens.opacity[30]})`,
         opacity: isVisible ? 1 : 0,
       }}
     >
@@ -39,7 +40,7 @@ export function PageTransitionLoader({ isVisible }: PageTransitionLoaderProps) {
         {/* Loading text */}
         <p
           className="text-sm font-medium"
-          style={{ color: "oklch(0.68 0.04 250 / 0.7)" }}
+          style={{ color: DesignTokens.theme.dark.text.secondary }}
         >
           Loading...
         </p>

@@ -11,6 +11,7 @@ import {
   forwardRef,
   type HTMLAttributes,
 } from "react";
+import { DesignTokens } from "./DesignTokens";
 import { useTheme } from "./provider";
 
 // Button component with theme variants
@@ -112,13 +113,13 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
           return {
             background: tokens.colors.glass.medium,
             border: `1px solid ${tokens.colors.borders.light}`,
-            backdropFilter: "blur(20px)",
-            boxShadow: "0 8px 32px oklch(0% 0 none / 0.1)",
+            backdropFilter: DesignTokens.backdropBlur.lg,
+            boxShadow: DesignTokens.boxShadow.glass,
           };
         case "elevated":
           return {
             background: tokens.colors.brand.surfaceElevated,
-            boxShadow: "0 20px 40px oklch(0% 0 none / 0.2)",
+            boxShadow: DesignTokens.boxShadow.xl,
           };
         case "bordered":
           return {

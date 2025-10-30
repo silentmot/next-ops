@@ -3,6 +3,7 @@
  * Showcasing the museum-quality theme system
  * Created: October 29, 2025
  */
+/** biome-ignore-all assist/source/organizeImports: imports are organized by visual grouping for demo clarity */
 
 "use client";
 
@@ -23,7 +24,7 @@ import {
   GradientText,
   ThemeSwitcher,
   useTheme,
-} from "../../lib/theme";
+} from "@/lib";
 
 export default function ThemeDemo() {
   const { tokens, variant } = useTheme();

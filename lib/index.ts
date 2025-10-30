@@ -12,9 +12,9 @@ export {
   GradientText,
   ThemeSwitcher,
 } from "./components";
+export type { DesignTokens } from "./DesignTokens";
 // Core theme system
 export { ThemeProvider, type ThemeVariant, useTheme } from "./provider";
-export { type DesignTokens, designTokens } from "./tokens";
 
 // Complete theme system ready for use
 // All components are fully typed with TypeScript for excellent DX

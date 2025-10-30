@@ -14,7 +14,7 @@ import {
   useMemo,
   useState,
 } from "react";
-import { type DesignTokens, designTokens } from "./tokens";
+import { DesignTokens } from "./DesignTokens";
 
 // Theme variants
 export type ThemeVariant = "cosmic" | "aurora" | "nebula" | "void";
@@ -22,7 +22,7 @@ export type ThemeVariant = "cosmic" | "aurora" | "nebula" | "void";
 // Theme context type
 interface ThemeContextType {
   variant: ThemeVariant;
-  tokens: DesignTokens;
+  tokens: typeof DesignTokens;
   setVariant: (variant: ThemeVariant) => void;
   isDark: boolean;
   toggleDarkMode: () => void;
@@ -31,30 +31,55 @@ interface ThemeContextType {
 // Create context
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+// Theme variant override type
+type ThemeVariantOverride = {
+  colors?: {
+    brand?: {
+      primary?: string;
+      secondary?: string;
+      accent?: string;
+      surface?: string;
+      surfaceElevated?: string;
+      surfaceHighlight?: string;
+    };
+    gradients?: {
+      primary?: string;
+      secondary?: string;
+      tertiary?: string;
+      rainbow?: string;
+      [key: string]: string | undefined;
+    };
+    glass?: typeof DesignTokens.colors.glass;
+    borders?: typeof DesignTokens.colors.borders;
+    text?: typeof DesignTokens.colors.text;
+  };
+};
+
 // Theme variants with different color palettes
-const themeVariants: Record<ThemeVariant, Partial<DesignTokens>> = {
+const themeVariants: Record<ThemeVariant, ThemeVariantOverride> = {
   cosmic: {
     // Original cosmic theme (current)
-    colors: designTokens.colors,
+    colors: DesignTokens.colors,
   },
 
   aurora: {
     // Northern lights inspired
     colors: {
-      ...designTokens.colors,
+      ...DesignTokens.colors,
       brand: {
-        primary: "#00f5ff",
-        secondary: "#7c3aed",
-        accent: "#06ffa5",
-        surface: "#0a0f1c",
-        surfaceElevated: "#1a1f2e",
-        surfaceHighlight: "#2a2f3e",
+        primary: "oklch(0.85 0.20 195)",
+        secondary: "oklch(0.60 0.25 285)",
+        accent: "oklch(0.85 0.18 165)",
+        surface: "oklch(0.15 0.02 250)",
+        surfaceElevated: "oklch(0.20 0.02 250)",
+        surfaceHighlight: "oklch(0.25 0.02 250)",
       },
       gradients: {
-        ...designTokens.colors.gradients,
-        primary: "linear-gradient(135deg, #00f5ff 0%, #7c3aed 100%)",
+        ...DesignTokens.colors.gradients,
+        primary:
+          "linear-gradient(135deg, oklch(0.85 0.20 195) 0%, oklch(0.60 0.25 285) 100%)",
         rainbow:
-          "linear-gradient(135deg, #00f5ff 0%, #7c3aed 50%, #06ffa5 100%)",
+          "linear-gradient(135deg, oklch(0.85 0.20 195) 0%, oklch(0.60 0.25 285) 50%, oklch(0.85 0.18 165) 100%)",
       },
     },
   },
@@ -62,20 +87,21 @@ const themeVariants: Record<ThemeVariant, Partial<DesignTokens>> = {
   nebula: {
     // Deep space nebula theme
     colors: {
-      ...designTokens.colors,
+      ...DesignTokens.colors,
       brand: {
-        primary: "#ff6b6b",
-        secondary: "#4ecdc4",
-        accent: "#45b7d1",
-        surface: "#1a0d1a",
-        surfaceElevated: "#2d1b2d",
-        surfaceHighlight: "#3d2b3d",
+        primary: "oklch(0.68 0.20 25)",
+        secondary: "oklch(0.72 0.14 195)",
+        accent: "oklch(0.70 0.13 220)",
+        surface: "oklch(0.15 0.03 330)",
+        surfaceElevated: "oklch(0.22 0.03 330)",
+        surfaceHighlight: "oklch(0.28 0.03 330)",
       },
       gradients: {
-        ...designTokens.colors.gradients,
-        primary: "linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%)",
+        ...DesignTokens.colors.gradients,
+        primary:
+          "linear-gradient(135deg, oklch(0.68 0.20 25) 0%, oklch(0.72 0.14 195) 100%)",
         rainbow:
-          "linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 50%, #45b7d1 100%)",
+          "linear-gradient(135deg, oklch(0.68 0.20 25) 0%, oklch(0.72 0.14 195) 50%, oklch(0.70 0.13 220) 100%)",
       },
     },
   },
@@ -83,20 +109,21 @@ const themeVariants: Record<ThemeVariant, Partial<DesignTokens>> = {
   void: {
     // Pure dark void theme
     colors: {
-      ...designTokens.colors,
+      ...DesignTokens.colors,
       brand: {
-        primary: "#ffffff",
-        secondary: "#a1a1aa",
-        accent: "#71717a",
-        surface: "#000000",
-        surfaceElevated: "#0a0a0a",
-        surfaceHighlight: "#171717",
+        primary: "oklch(1.0 0 0)",
+        secondary: "oklch(0.68 0 0)",
+        accent: "oklch(0.55 0 0)",
+        surface: "oklch(0 0 0)",
+        surfaceElevated: "oklch(0.10 0 0)",
+        surfaceHighlight: "oklch(0.18 0 0)",
       },
       gradients: {
-        ...designTokens.colors.gradients,
-        primary: "linear-gradient(135deg, #ffffff 0%, #a1a1aa 100%)",
+        ...DesignTokens.colors.gradients,
+        primary:
+          "linear-gradient(135deg, oklch(1.0 0 0) 0%, oklch(0.68 0 0) 100%)",
         rainbow:
-          "linear-gradient(135deg, #ffffff 0%, #a1a1aa 50%, #71717a 100%)",
+          "linear-gradient(135deg, oklch(1.0 0 0) 0%, oklch(0.68 0 0) 50%, oklch(0.55 0 0) 100%)",
       },
     },
   },
@@ -137,13 +164,13 @@ export function ThemeProvider({
   }, [variant, isDark]);
 
   // Merge base tokens with variant overrides - memoized for performance
-  const tokens: DesignTokens = useMemo(
+  const tokens = useMemo(
     () => ({
-      ...designTokens,
+      ...DesignTokens,
       ...themeVariants[variant],
     }),
     [variant],
-  );
+  ) as typeof DesignTokens;
 
   const toggleDarkMode = () => setIsDark(!isDark);
 
@@ -151,25 +178,24 @@ export function ThemeProvider({
   useEffect(() => {
     const root = document.documentElement;
 
-    // Apply color tokens as CSS variables
     Object.entries(tokens.colors.brand).forEach(([key, value]) => {
-      root.style.setProperty(`--color-brand-${key}`, value);
+      root.style.setProperty(`--color-brand-${key}`, value as string);
     });
 
     Object.entries(tokens.colors.gradients).forEach(([key, value]) => {
-      root.style.setProperty(`--gradient-${key}`, value);
+      root.style.setProperty(`--gradient-${key}`, value as string);
     });
 
     Object.entries(tokens.colors.glass).forEach(([key, value]) => {
-      root.style.setProperty(`--glass-${key}`, value);
+      root.style.setProperty(`--glass-${key}`, value as string);
     });
 
     Object.entries(tokens.colors.borders).forEach(([key, value]) => {
-      root.style.setProperty(`--border-${key}`, value);
+      root.style.setProperty(`--border-${key}`, value as string);
     });
 
     Object.entries(tokens.colors.text).forEach(([key, value]) => {
-      root.style.setProperty(`--text-${key}`, value);
+      root.style.setProperty(`--text-${key}`, value as string);
     });
 
     // Apply typography tokens
@@ -178,7 +204,7 @@ export function ThemeProvider({
 
     // Apply spacing tokens
     Object.entries(tokens.spacing).forEach(([key, value]) => {
-      root.style.setProperty(`--spacing-${key}`, value);
+      root.style.setProperty(`--spacing-${key}`, value as string);
     });
 
     // Apply theme class to body
@@ -201,51 +227,8 @@ export function ThemeProvider({
 // Hook to use theme
 export function useTheme() {
   const context = useContext(ThemeContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
-}
-
-// Utility hook for theme-aware styling
-export function useThemeStyles() {
-  const { tokens, variant, isDark } = useTheme();
-
-  return {
-    // Glass morphism styles
-    glass: (intensity: keyof typeof tokens.colors.glass = "light") => ({
-      backgroundColor: tokens.colors.glass[intensity],
-      backdropFilter: tokens.backdrop.blur.lg,
-      border: `1px solid ${tokens.colors.borders.light}`,
-    }),
-
-    // Gradient backgrounds
-    gradient: (type: keyof typeof tokens.colors.gradients = "primary") => ({
-      background: tokens.colors.gradients[type],
-    }),
-
-    // Brand shadows
-    shadow: (type: keyof typeof tokens.shadows.brand = "primary") => ({
-      boxShadow: tokens.shadows.brand[type],
-    }),
-
-    // Animation styles
-    transition: (
-      duration: keyof typeof tokens.animation.duration = "normal",
-    ) => ({
-      transition: `all ${tokens.animation.duration[duration]} ${tokens.animation.easing.spring}`,
-    }),
-
-    // Hover scale effect
-    hoverScale: (scale: keyof typeof tokens.animation.scale = "small") => ({
-      "&:hover": {
-        transform: `scale(${tokens.animation.scale[scale]})`,
-      },
-    }),
-
-    // Utilities
-    variant,
-    isDark,
-    tokens,
-  };
 }

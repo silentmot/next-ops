@@ -7,7 +7,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useTheme } from "../../lib/theme";
+import { useTheme } from "@/lib";
+import { DesignTokens } from "@/lib/DesignTokens";
 
 interface PremiumLoaderProps {
   onComplete?: () => void;
@@ -71,38 +72,39 @@ export function PremiumLoader({
       className="fixed inset-0 z-50 flex items-center justify-center overflow-hidden"
       style={{
         background: `linear-gradient(135deg,
-          oklch(0.08 0.02 265) 0%,
-          oklch(0.12 0.04 275) 30%,
-          oklch(0.16 0.06 285) 60%,
+          ${DesignTokens.theme.dark.background.primary} 0%,
+          ${DesignTokens.theme.dark.background.secondary} 30%,
+          ${DesignTokens.theme.dark.background.tertiary} 60%,
           oklch(0.20 0.08 295) 100%
         )`,
       }}
     >
       {/* Animated Background Particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {isClient && [...Array(20)].map((_, i) => {
-          // Use deterministic values based on index to prevent hydration mismatch
-          const particleId = `particle-${i}`;
-          const left = (i * 31.7) % 100; // Use deterministic positioning
-          const top = (i * 47.3) % 100;
-          const duration = 18 + (i % 10) * 2; // Slower: 18-36s instead of 8-14s
-          const delay = (i % 8) * 0.5;
-          const direction = i % 2 === 0 ? "normal" : "reverse";
+        {isClient &&
+          [...Array(20)].map((_, i) => {
+            // Use deterministic values based on index to prevent hydration mismatch
+            const particleId = `particle-${i}`;
+            const left = (i * 31.7) % 100; // Use deterministic positioning
+            const top = (i * 47.3) % 100;
+            const duration = 18 + (i % 10) * 2; // Slower: 18-36s instead of 8-14s
+            const delay = (i % 8) * 0.5;
+            const direction = i % 2 === 0 ? "normal" : "reverse";
 
-          return (
-            <div
-              key={particleId}
-              className="absolute w-1 h-1 rounded-full opacity-20"
-              style={{
-                background: tokens.colors.gradients.primary,
-                left: `${left}%`,
-                top: `${top}%`,
-                animation: `float ${duration}s ease-in-out infinite ${delay}s`,
-                animationDirection: direction,
-              }}
-            />
-          );
-        })}
+            return (
+              <div
+                key={particleId}
+                className="absolute w-1 h-1 rounded-full opacity-20"
+                style={{
+                  background: tokens.colors.gradients.primary,
+                  left: `${left}%`,
+                  top: `${top}%`,
+                  animation: `float ${duration}s ease-in-out infinite ${delay}s`,
+                  animationDirection: direction,
+                }}
+              />
+            );
+          })}
       </div>
 
       {/* Central Loading Experience */}
@@ -119,16 +121,12 @@ export function PremiumLoader({
             `}
             style={{
               background: tokens.colors.gradients.primary,
-              boxShadow: `
-                0 0 60px oklch(0.62 0.25 264 / 0.25),
-                0 0 120px oklch(0.62 0.25 264 / 0.12),
-                inset 0 0 60px oklch(0.62 0.25 264 / 0.06)
-              `,
+              boxShadow: `${DesignTokens.boxShadow.glow.strong}, ${DesignTokens.boxShadow.brand.primary}`,
             }}
           >
             <span
               className="text-4xl font-bold"
-              style={{ color: "oklch(0.98 0.01 250)" }}
+              style={{ color: DesignTokens.theme.dark.text.primary }}
             >
               OPS
             </span>
@@ -139,7 +137,7 @@ export function PremiumLoader({
                 <div
                   className="absolute inset-0 rounded-3xl"
                   style={{
-                    background: `conic-gradient(from 0deg, transparent, oklch(0.62 0.25 264 / 0.25), transparent)`,
+                    background: `conic-gradient(from 0deg, transparent, ${DesignTokens.theme.dark.accent.emerald.from}, transparent)`,
                     animation: "spin 6s linear infinite",
                   }}
                 />
@@ -173,8 +171,8 @@ export function PremiumLoader({
             <div
               className="h-1 rounded-full overflow-hidden"
               style={{
-                background: "oklch(1 0 0 / 0.1)",
-                backdropFilter: "blur(10px)",
+                background: DesignTokens.glassOpacity.light,
+                backdropFilter: DesignTokens.backdropBlur.md,
               }}
             >
               {/* Progress Fill */}
@@ -189,8 +187,7 @@ export function PremiumLoader({
                 <div
                   className="absolute inset-0 w-full h-full"
                   style={{
-                    background:
-                      "linear-gradient(90deg, transparent, oklch(1 0 0 / 0.4), transparent)",
+                    background: `linear-gradient(90deg, transparent, ${DesignTokens.glassOpacity.strong}, transparent)`,
                     animation: "shimmer 4s ease-in-out infinite",
                   }}
                 />
@@ -200,7 +197,7 @@ export function PremiumLoader({
             {/* Progress Percentage */}
             <div
               className="flex justify-between items-center mt-4 text-sm font-medium"
-              style={{ color: "oklch(0.68 0.04 250 / 0.6)" }}
+              style={{ color: DesignTokens.theme.dark.text.tertiary }}
             >
               <span>Loading Experience</span>
               <span>{Math.round(progress)}%</span>
@@ -213,26 +210,26 @@ export function PremiumLoader({
           <div className="mb-8 animate-pulse">
             <div
               className="flex justify-center items-center gap-2 text-sm"
-              style={{ color: "oklch(0.68 0.04 250)" }}
+              style={{ color: DesignTokens.theme.dark.text.secondary }}
             >
               <div
                 className="w-2 h-2 rounded-full animate-bounce"
                 style={{
-                  background: "oklch(1 0 0 / 0.4)",
+                  background: DesignTokens.glassOpacity.strong,
                   animationDelay: "0s",
                 }}
               />
               <div
                 className="w-2 h-2 rounded-full animate-bounce"
                 style={{
-                  background: "oklch(1 0 0 / 0.4)",
+                  background: DesignTokens.glassOpacity.strong,
                   animationDelay: "0.2s",
                 }}
               />
               <div
                 className="w-2 h-2 rounded-full animate-bounce"
                 style={{
-                  background: "oklch(1 0 0 / 0.4)",
+                  background: DesignTokens.glassOpacity.strong,
                   animationDelay: "0.4s",
                 }}
               />
@@ -244,7 +241,7 @@ export function PremiumLoader({
           <div className="animate-fade-in">
             <p
               className="text-lg font-light"
-              style={{ color: "oklch(0.68 0.04 250 / 0.7)" }}
+              style={{ color: DesignTokens.theme.dark.text.secondary }}
             >
               Welcome to Operations Portal
             </p>

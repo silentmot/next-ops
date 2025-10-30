@@ -9,8 +9,9 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { Geist, Geist_Mono } from "next/font/google";
-import { ThemeProvider } from "../lib/theme";
-import { AppLoadingWrapper } from "../components/AppLoadingWrapper";
+import { ThemeProvider } from "@/lib";
+import { AppLoadingWrapper } from "@components/AppLoadingWrapper";
+import { DesignTokens } from "@/lib/DesignTokens";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -33,17 +34,17 @@ const clerkAppearance = {
   cssLayerName: "clerk-advanced",
   variables: {
     // Color palette with sophisticated gradients
-    colorPrimary: "oklch(0.62 0.25 264)",
-    colorDanger: "oklch(0.63 0.26 27)",
-    colorSuccess: "oklch(0.68 0.19 160)",
-    colorWarning: "oklch(0.75 0.19 75)",
-    colorNeutral: "oklch(0.54 0.04 250)",
-    colorBackground: "oklch(0.13 0.02 265)",
-    colorInputBackground: "oklch(1 0 0 / 0.05)",
-    colorInputText: "oklch(0.98 0.01 250)",
-    colorText: "oklch(0.98 0.01 250)",
-    colorTextSecondary: "oklch(0.68 0.04 250)",
-    colorTextOnPrimaryBackground: "oklch(1 0 0)",
+    colorPrimary: DesignTokens.theme.dark.accent.emerald.from,
+    colorDanger: DesignTokens.theme.dark.status.critical,
+    colorSuccess: DesignTokens.theme.dark.status.success,
+    colorWarning: DesignTokens.theme.dark.status.warning,
+    colorNeutral: DesignTokens.theme.dark.text.tertiary,
+    colorBackground: DesignTokens.theme.dark.background.primary,
+    colorInputBackground: DesignTokens.glassOpacity.light,
+    colorInputText: DesignTokens.theme.dark.text.primary,
+    colorText: DesignTokens.theme.dark.text.primary,
+    colorTextSecondary: DesignTokens.theme.dark.text.secondary,
+    colorTextOnPrimaryBackground: DesignTokens.theme.dark.text.interactive,
 
     // Typography
     fontFamily: '"Geist", -apple-system, BlinkMacSystemFont, sans-serif',
@@ -57,23 +58,22 @@ const clerkAppearance = {
     },
 
     // Spacing and layout
-    spacingUnit: "1rem",
-    borderRadius: "12px",
+    spacingUnit: DesignTokens.spacing["4"],
+    borderRadius: DesignTokens.borderRadius.lg,
 
     // Advanced visual effects
-    shadowShimmer: "0 0 50px oklch(0.62 0.25 264 / 0.3)",
-    shadowFocus: "0 0 0 3px oklch(0.62 0.25 264 / 0.2)",
+    shadowShimmer: DesignTokens.boxShadow.glow.strong,
+    shadowFocus: DesignTokens.boxShadow.glow.subtle,
   },
   elements: {
     // Main container with glassmorphic effect
     card: {
-      backgroundColor: "oklch(0.13 0.02 265 / 0.8)",
-      backdropFilter: "blur(20px)",
-      border: "1px solid oklch(1 0 0 / 0.1)",
-      borderRadius: "20px",
-      boxShadow:
-        "0 25px 50px -12px oklch(0 0 0 / 0.5), 0 0 100px oklch(0.62 0.25 264 / 0.1)",
-      padding: "2.5rem",
+      backgroundColor: DesignTokens.glassOpacity.medium,
+      backdropFilter: DesignTokens.backdropBlur.lg,
+      border: `1px solid ${DesignTokens.borderOpacity.light}`,
+      borderRadius: DesignTokens.borderRadius["2xl"],
+      boxShadow: `${DesignTokens.boxShadow["2xl"]}, ${DesignTokens.boxShadow.glow.subtle}`,
+      padding: DesignTokens.spacing["10"],
       position: "relative",
       overflow: "hidden",
       "&::before": {
@@ -83,67 +83,63 @@ const clerkAppearance = {
         left: 0,
         right: 0,
         height: "1px",
-        background:
-          "linear-gradient(90deg, transparent, oklch(0.62 0.25 264 / 0.8), transparent)",
+        background: DesignTokens.gradient.primary.css,
       },
     },
 
     // Header styling with gradient text
     headerTitle: {
-      background:
-        "linear-gradient(135deg, oklch(0.62 0.25 264) 0%, oklch(0.64 0.24 293) 50%, oklch(0.65 0.29 350) 100%)",
+      background: DesignTokens.gradient.rainbow.css,
       backgroundClip: "text",
       WebkitBackgroundClip: "text",
       WebkitTextFillColor: "transparent",
-      fontSize: "2rem",
-      fontWeight: "700",
+      fontSize: DesignTokens.typography.fontSize["2xl"],
+      fontWeight: DesignTokens.typography.fontWeight.bold,
       textAlign: "center",
-      marginBottom: "0.5rem",
-      letterSpacing: "-0.025em",
+      marginBottom: DesignTokens.spacing["2"],
+      letterSpacing: DesignTokens.typography.letterSpacing.tight,
     },
 
     headerSubtitle: {
-      color: "oklch(0.68 0.04 250)",
-      fontSize: "1rem",
+      color: DesignTokens.theme.dark.text.secondary,
+      fontSize: DesignTokens.typography.fontSize.base,
       textAlign: "center",
-      marginBottom: "2rem",
-      opacity: 0.8,
+      marginBottom: DesignTokens.spacing["8"],
+      opacity: DesignTokens.opacity["80"],
     },
 
     // Form elements with advanced styling
     formFieldInput: {
-      backgroundColor: "oklch(1 0 0 / 0.05)",
-      border: "1px solid oklch(1 0 0 / 0.1)",
-      borderRadius: "12px",
-      color: "oklch(0.98 0.01 250)",
-      fontSize: "16px",
-      padding: "0.875rem 1rem",
-      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      backgroundColor: DesignTokens.glassOpacity.light,
+      border: `1px solid ${DesignTokens.borderOpacity.light}`,
+      borderRadius: DesignTokens.borderRadius.lg,
+      color: DesignTokens.theme.dark.text.primary,
+      fontSize: DesignTokens.typography.fontSize.base,
+      padding: `${DesignTokens.spacing["3.5"]} ${DesignTokens.spacing["4"]}`,
+      transition: `all ${DesignTokens.duration.normal} ${DesignTokens.easing.smooth}`,
       "&:focus": {
-        backgroundColor: "oklch(1 0 0 / 0.08)",
-        borderColor: "oklch(0.62 0.25 264)",
-        boxShadow:
-          "0 0 0 3px oklch(0.62 0.25 264 / 0.2), 0 0 20px oklch(0.62 0.25 264 / 0.1)",
+        backgroundColor: DesignTokens.glassOpacity.medium,
+        borderColor: DesignTokens.theme.dark.accent.emerald.from,
+        boxShadow: `${DesignTokens.boxShadow.glow.subtle}, ${DesignTokens.boxShadow.glow.medium}`,
         outline: "none",
       },
       "&::placeholder": {
-        color: "oklch(0.52 0.03 250)",
+        color: DesignTokens.theme.dark.text.tertiary,
       },
     },
 
     // Primary button with gradient and animation
     formButtonPrimary: {
-      background:
-        "linear-gradient(135deg, oklch(0.62 0.25 264) 0%, oklch(0.64 0.24 293) 100%)",
+      background: DesignTokens.gradient.signIn.css,
       border: "none",
-      borderRadius: "12px",
-      color: "oklch(1 0 0)",
+      borderRadius: DesignTokens.borderRadius.lg,
+      color: DesignTokens.theme.dark.text.interactive,
       cursor: "pointer",
-      fontSize: "16px",
-      fontWeight: "600",
-      padding: "0.875rem 2rem",
+      fontSize: DesignTokens.typography.fontSize.base,
+      fontWeight: DesignTokens.typography.fontWeight.semibold,
+      padding: `${DesignTokens.spacing["3.5"]} ${DesignTokens.spacing["8"]}`,
       position: "relative",
-      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      transition: `all ${DesignTokens.duration.normal} ${DesignTokens.easing.smooth}`,
       overflow: "hidden",
       "&::before": {
         content: '""',
@@ -152,13 +148,12 @@ const clerkAppearance = {
         left: "-100%",
         width: "100%",
         height: "100%",
-        background:
-          "linear-gradient(90deg, transparent, oklch(1 0 0 / 0.2), transparent)",
-        transition: "left 0.6s ease",
+        background: `linear-gradient(90deg, transparent, ${DesignTokens.glassOpacity.medium}, transparent)`,
+        transition: `left ${DesignTokens.duration.slow} ease`,
       },
       "&:hover": {
-        transform: "translateY(-2px)",
-        boxShadow: "0 10px 25px oklch(0.62 0.25 264 / 0.4)",
+        transform: `scale(${DesignTokens.scale.small})`,
+        boxShadow: DesignTokens.boxShadow.brand.primary,
         "&::before": {
           left: "100%",
         },
@@ -170,80 +165,79 @@ const clerkAppearance = {
 
     // Secondary/social buttons
     socialButtonsBlockButton: {
-      backgroundColor: "oklch(1 0 0 / 0.05)",
-      border: "1px solid oklch(1 0 0 / 0.1)",
-      borderRadius: "12px",
-      color: "oklch(0.98 0.01 250)",
-      padding: "0.875rem 1rem",
-      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+      backgroundColor: DesignTokens.glassOpacity.light,
+      border: `1px solid ${DesignTokens.borderOpacity.light}`,
+      borderRadius: DesignTokens.borderRadius.lg,
+      color: DesignTokens.theme.dark.text.primary,
+      padding: `${DesignTokens.spacing["3.5"]} ${DesignTokens.spacing["4"]}`,
+      transition: `all ${DesignTokens.duration.normal} ${DesignTokens.easing.smooth}`,
       "&:hover": {
-        backgroundColor: "oklch(1 0 0 / 0.1)",
-        borderColor: "oklch(1 0 0 / 0.2)",
-        transform: "translateY(-1px)",
+        backgroundColor: DesignTokens.glassOpacity.medium,
+        borderColor: DesignTokens.borderOpacity.medium,
+        transform: `scale(${DesignTokens.scale.subtle})`,
       },
     },
 
     // Links and navigation
     footerActionLink: {
-      color: "oklch(0.62 0.25 264)",
+      color: DesignTokens.theme.dark.accent.emerald.from,
       textDecoration: "none",
-      fontWeight: "500",
-      transition: "all 0.3s ease",
+      fontWeight: DesignTokens.typography.fontWeight.medium,
+      transition: `all ${DesignTokens.duration.normal} ease`,
       "&:hover": {
-        color: "oklch(0.64 0.24 293)",
+        color: DesignTokens.theme.dark.accent.violet.from,
         textDecoration: "underline",
-        textDecorationColor: "oklch(0.64 0.24 293)",
+        textDecorationColor: DesignTokens.theme.dark.accent.violet.from,
         textUnderlineOffset: "4px",
       },
     },
 
     // User button with custom styling
     userButtonAvatarBox: {
-      width: "40px",
-      height: "40px",
-      borderRadius: "50%",
-      border: "2px solid transparent",
-      background:
-        "linear-gradient(135deg, oklch(0.62 0.25 264), oklch(0.64 0.24 293)) border-box",
+      width: DesignTokens.spacing["10"],
+      height: DesignTokens.spacing["10"],
+      borderRadius: DesignTokens.borderRadius.full,
+      border: `${DesignTokens.borderWidth["2"]} solid transparent`,
+      background: `${DesignTokens.gradient.signIn.css} border-box`,
       WebkitMask:
         "linear-gradient(oklch(1 0 0) 0 0) padding-box, linear-gradient(oklch(1 0 0) 0 0)",
       WebkitMaskComposite: "subtract",
       maskComposite: "subtract",
-      transition: "all 0.3s ease",
+      transition: `all ${DesignTokens.duration.normal} ease`,
       "&:hover": {
-        transform: "scale(1.05)",
-        boxShadow: "0 0 20px oklch(0.62 0.25 264 / 0.4)",
+        transform: `scale(${DesignTokens.scale.small})`,
+        boxShadow: DesignTokens.boxShadow.glow.medium,
       },
     },
 
     // Form field labels
     formFieldLabel: {
-      color: "oklch(0.91 0.01 250)",
-      fontSize: "14px",
-      fontWeight: "500",
-      marginBottom: "0.5rem",
+      color: DesignTokens.theme.dark.text.primary,
+      fontSize: DesignTokens.typography.fontSize.sm,
+      fontWeight: DesignTokens.typography.fontWeight.medium,
+      marginBottom: DesignTokens.spacing["2"],
     },
 
     // Error styling
     formFieldErrorText: {
-      color: "oklch(0.63 0.26 27)",
-      fontSize: "14px",
-      marginTop: "0.5rem",
-      fontWeight: "500",
+      color: DesignTokens.theme.dark.status.critical,
+      fontSize: DesignTokens.typography.fontSize.sm,
+      marginTop: DesignTokens.spacing["2"],
+      fontWeight: DesignTokens.typography.fontWeight.medium,
     },
 
     // Loading states
     spinner: {
-      color: "oklch(0.62 0.25 264)",
+      color: DesignTokens.theme.dark.accent.emerald.from,
     },
 
     // Modal/popover styling
     modalContent: {
-      backgroundColor: "oklch(0.13 0.02 265 / 0.95)",
-      backdropFilter: "blur(20px)",
-      border: "1px solid oklch(1 0 0 / 0.1)",
-      borderRadius: "20px",
-      boxShadow: "0 25px 50px -12px oklch(0 0 0 / 0.7)",
+      backgroundColor: DesignTokens.glassOpacity.strong,
+      backdropFilter: DesignTokens.backdropBlur.lg,
+      border: `1px solid ${DesignTokens.borderOpacity.light}`,
+      borderRadius: DesignTokens.borderRadius["2xl"],
+      boxShadow: DesignTokens.boxShadow["2xl"],
     },
   },
   layout: {
@@ -279,16 +273,14 @@ export default function RootLayout({
             <div
               className="absolute -top-1/2 -left-1/2 w-full h-full opacity-30"
               style={{
-                background:
-                  "radial-gradient(circle, oklch(0.62 0.25 264 / 0.1) 0%, transparent 70%)",
+                background: `radial-gradient(circle, ${DesignTokens.theme.dark.accent.emerald.from} / ${DesignTokens.opacity["10"]} 0%, transparent 70%)`,
                 animation: "float 20s ease-in-out infinite",
               }}
             />
             <div
               className="absolute -bottom-1/2 -right-1/2 w-full h-full opacity-20"
               style={{
-                background:
-                  "radial-gradient(circle, oklch(0.64 0.24 293 / 0.1) 0%, transparent 70%)",
+                background: `radial-gradient(circle, ${DesignTokens.theme.dark.accent.violet.from} / ${DesignTokens.opacity["10"]} 0%, transparent 70%)`,
                 animation: "float 25s ease-in-out infinite reverse",
               }}
             />
@@ -298,8 +290,8 @@ export default function RootLayout({
           <header
             className="relative z-10 backdrop-blur-md border-b"
             style={{
-              backgroundColor: "oklch(0.13 0.02 265 / 0.8)",
-              borderBottomColor: "oklch(1 0 0 / 0.1)",
+              backgroundColor: DesignTokens.glassOpacity.medium,
+              borderBottomColor: DesignTokens.borderOpacity.light,
             }}
           >
             <div className="container mx-auto px-4 py-4">
@@ -308,8 +300,7 @@ export default function RootLayout({
                   <div
                     className="w-10 h-10 rounded-lg flex items-center justify-center font-bold text-white"
                     style={{
-                      background:
-                        "linear-gradient(135deg, oklch(0.62 0.25 264) 0%, oklch(0.64 0.24 293) 100%)",
+                      background: DesignTokens.gradient.signIn.css,
                     }}
                   >
                     OPS
@@ -334,9 +325,8 @@ export default function RootLayout({
                         type="button"
                         className="px-6 py-2 text-sm font-medium text-white rounded-lg transition-all duration-300 hover:transform hover:scale-105"
                         style={{
-                          background:
-                            "linear-gradient(135deg, oklch(0.62 0.25 264) 0%, oklch(0.64 0.24 293) 100%)",
-                          boxShadow: "0 4px 15px oklch(0.62 0.25 264 / 0.3)",
+                          background: DesignTokens.gradient.signIn.css,
+                          boxShadow: DesignTokens.boxShadow.brand.primary,
                         }}
                       >
                         Get Started
