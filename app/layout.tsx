@@ -271,6 +271,7 @@ export default function RootLayout({
               "linear-gradient(135deg, oklch(0.13 0.02 265) 0%, oklch(0.21 0.08 275) 50%, oklch(0.30 0.10 280) 100%)",
             backgroundAttachment: "fixed",
           }}
+          suppressHydrationWarning={true}
         >
           {/* Animated background elements */}
           <div className="fixed inset-0 overflow-hidden pointer-events-none">
