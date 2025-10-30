@@ -22,6 +22,7 @@ export function PremiumLoader({
   const [progress, setProgress] = useState(0);
   const [phase, setPhase] = useState<"spark" | "ignite" | "complete">("spark");
   const [textIndex, setTextIndex] = useState(0);
+  const [isClient, setIsClient] = useState(false);
 
   const loadingTexts = [
     "I t  a l l  s t a r t s  w i t h  a  s p a r k",
@@ -31,6 +32,9 @@ export function PremiumLoader({
   ];
 
   useEffect(() => {
+    // Set client-side flag to prevent hydration mismatch
+    setIsClient(true);
+
     const interval = setInterval(() => {
       setProgress((prev) => {
         const newProgress = prev + 100 / (duration / 50);
@@ -76,18 +80,19 @@ export function PremiumLoader({
     >
       {/* Animated Background Particles */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(20)].map((_, i) => {
-          const particleId = `particle-${Date.now()}-${i}-${Math.random().toString(36).substring(2, 9)}`;
-          const left = Math.random() * 100;
-          const top = Math.random() * 100;
-          const duration = 8 + Math.random() * 6;
-          const delay = Math.random() * 4;
-          const direction = Math.random() > 0.5 ? "normal" : "reverse";
+        {isClient && [...Array(20)].map((_, i) => {
+          // Use deterministic values based on index to prevent hydration mismatch
+          const particleId = `particle-${i}`;
+          const left = (i * 31.7) % 100; // Use deterministic positioning
+          const top = (i * 47.3) % 100;
+          const duration = 18 + (i % 10) * 2; // Slower: 18-36s instead of 8-14s
+          const delay = (i % 8) * 0.5;
+          const direction = i % 2 === 0 ? "normal" : "reverse";
 
           return (
             <div
               key={particleId}
-              className="absolute w-1 h-1 rounded-full opacity-30"
+              className="absolute w-1 h-1 rounded-full opacity-20"
               style={{
                 background: tokens.colors.gradients.primary,
                 left: `${left}%`,
@@ -135,7 +140,7 @@ export function PremiumLoader({
                   className="absolute inset-0 rounded-3xl"
                   style={{
                     background: `conic-gradient(from 0deg, transparent, oklch(0.62 0.25 264 / 0.25), transparent)`,
-                    animation: "spin 3s linear infinite",
+                    animation: "spin 6s linear infinite",
                   }}
                 />
               </div>
@@ -186,7 +191,7 @@ export function PremiumLoader({
                   style={{
                     background:
                       "linear-gradient(90deg, transparent, oklch(1 0 0 / 0.4), transparent)",
-                    animation: "shimmer 2.5s ease-in-out infinite",
+                    animation: "shimmer 4s ease-in-out infinite",
                   }}
                 />
               </div>
@@ -250,10 +255,10 @@ export function PremiumLoader({
       {/* CSS Animations */}
       <style jsx>{`
         @keyframes float {
-          0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
-          25% { transform: translateY(-20px) translateX(10px); opacity: 0.6; }
-          50% { transform: translateY(-10px) translateX(-5px); opacity: 0.8; }
-          75% { transform: translateY(-30px) translateX(15px); opacity: 0.4; }
+          0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.2; }
+          25% { transform: translateY(-15px) translateX(8px); opacity: 0.4; }
+          50% { transform: translateY(-8px) translateX(-4px); opacity: 0.6; }
+          75% { transform: translateY(-22px) translateX(12px); opacity: 0.3; }
         }
 
         @keyframes shimmer {
