@@ -1,0 +1,59 @@
+/**
+ * Icon Component Styles
+ * Source: DesignTokens.ts animation system
+ */
+
+.icon {
+  flex-shrink: 0;
+  display: inline-block;
+  line-height: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon:hover {
+  opacity: 0.8;
+}
+
+/* Animation variants */
+.icon--pulse {
+  animation: iconPulse 2s ease-in-out infinite;
+}
+
+.icon--spin {
+  animation: iconSpin 2s linear infinite;
+}
+
+.icon--bounce {
+  animation: iconBounce 1s ease-in-out infinite;
+}
+
+@keyframes iconPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes iconSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes iconBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}

@@ -6,7 +6,9 @@
       "Bash(npx tsc:*)",
       "Bash(bunx tsc:*)",
       "Bash(bun add:*)",
-      "Bash(bunx biome check:*)"
+      "Bash(bunx biome check:*)",
+      "Bash(bunx prisma migrate:*)",
+      "Bash(bunx prisma db seed:*)"
     ],
     "deny": [],
     "ask": []

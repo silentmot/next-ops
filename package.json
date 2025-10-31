@@ -7,11 +7,18 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "db:generate": "bunx prisma generate",
+    "db:migrate": "bunx prisma migrate dev",
+    "db:seed": "bunx prisma db seed",
+    "db:studio": "bunx prisma studio",
+    "db:reset": "bunx prisma migrate reset"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.34.1",
     "@iconify/api": "^3.1.1",
+    "@prisma/client": "^6.18.0",
+    "dotenv": "^17.2.3",
     "framer-motion": "^12.23.24",
     "lucide-react": "^0.548.0",
     "next": "16.0.1",
@@ -26,6 +33,7 @@
     "@types/node": "^24.9.2",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",
+    "prisma": "^6.18.0",
     "tailwindcss": "^4.1.16",
     "tailwindcss-animated": "^2.0.0",
     "typescript": "^5.9.3"
