@@ -1,3 +1,21 @@
+/**
+ * globals.css - Runtime CSS Variables & Global Styles
+ *
+ * RESPONSIBILITY:
+ * - CSS variables required at :root level for Tailwind runtime
+ * - Global resets and browser normalization
+ * - @keyframes animations (cannot be defined in TypeScript)
+ * - Accessibility styles and media queries
+ * - Component-specific CSS that cannot be imported via TS
+ *
+ * NOT IN THIS FILE:
+ * - Design token definitions (managed in @lib/DesignTokens.ts)
+ * - Type-safe constants (managed in @lib/DesignTokens.ts)
+ *
+ * SOURCE: DeskOps-DashboardGuide.md
+ * LAST UPDATED: 2025-10-31 (GZANSP Compliance Corrections)
+ */
+
 @layer theme, base, clerk, components, utilities;
 @import "tailwindcss";
 
@@ -34,57 +52,8 @@
     --warning: 68.84% 0.178 83.87;
     --warning-foreground: 93.81% 0.103 99.57;
 
-    /* DeskOps Dashboard-specific variables */
-    /* Source: DeskOps-DashboardGuide.md Lines 21-45 */
-    --deskops-bg-primary: 0.15 0.06 264; /* Deep Navy */
-    --deskops-bg-secondary: 0.2 0.05 264; /* Slate Navy */
-    --deskops-bg-tertiary: 0.26 0.05 270; /* Purple-Tinted Navy */
-    --deskops-glass: 1 0 0 / 0.05; /* Glass Surface */
-
-    --deskops-text-primary: 0.96 0.01 264; /* Off-White */
-    --deskops-text-secondary: 0.86 0.01 264; /* Light Gray */
-    --deskops-text-tertiary: 0.7 0.01 264; /* Muted Gray */
-
-    /* DeskOps accent colors */
-    --deskops-emerald-from: 0.75 0.17 166;
-    --deskops-emerald-to: 0.78 0.15 195;
-    --deskops-violet-from: 0.6 0.24 293;
-    --deskops-violet-to: 0.65 0.27 340;
-    --deskops-orange-from: 0.73 0.16 50;
-    --deskops-orange-to: 0.7 0.18 45;
-
-    /* DeskOps status colors */
-    --deskops-success: 0.65 0.2 158;
-    --deskops-warning: 0.7 0.16 70;
-    --deskops-critical: 0.58 0.23 25;
-    --deskops-info: 0.6 0.19 251;
-
-    /* DeskOps effects */
-    --deskops-backdrop-blur-sm: 4px;
-    --deskops-backdrop-blur-md: 10px;
-    --deskops-backdrop-blur-lg: 20px;
-    --deskops-backdrop-saturate: 1.8;
-
-    /* DeskOps shadows */
-    --deskops-shadow-glass:
-      0 8px 32px oklch(0 0 0 / 0.1), inset 1px 1px 0 oklch(1 0 0 / 0.2);
-    --deskops-shadow-glass-hover:
-      0 20px 48px oklch(0 0 0 / 0.2), inset 1px 1px 0 oklch(1 0 0 / 0.3);
-
-    /* DeskOps animation durations */
-    --deskops-duration-fast: 150ms;
-    --deskops-duration-normal: 300ms;
-    --deskops-duration-medium: 400ms;
-    --deskops-duration-counter: 1200ms;
-    --deskops-duration-shimmer: 2000ms;
-    --deskops-duration-pulse: 3000ms;
-
-    /* DeskOps easing functions */
-    --deskops-easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-    --deskops-easing-elastic: cubic-bezier(0.23, 1, 0.32, 1);
-
-    /* Typography System - Enhanced */
-    --text-scaling: 1.067;
+    /* Typography System - Runtime Variables */
+    /* NOTE: --text-scaling REMOVED (use DesignTokens.TextScaling in TS) */
     --base-font-color: oklch(0.15 0.02 264);
     --base-font-color-dark: oklch(0.96 0.01 264);
     --base-font-family:
@@ -115,8 +84,7 @@
     --anchor-text-decoration-focus: none;
   }
 
-  /* Dark theme overrides */
-  /* Source: User's globals.css Lines 37-66 */
+  /* Dark theme overrides for Tailwind */
   .dark {
     --background: 25.49% 0.089 264.05;
     --foreground: 96.72% 0.014 264.05;
@@ -148,39 +116,12 @@
     --warning-foreground: 25.49% 0.089 264.05;
   }
 
-  /* Alternative dark theme using data attribute */
-  /* Source: DeskOps-DashboardGuide.md Lines 47-60 */
-  [data-theme="dark"] {
-    --deskops-bg-primary: 0.15 0.06 264;
-    --deskops-bg-secondary: 0.2 0.05 264;
-    --deskops-bg-tertiary: 0.26 0.05 270;
-    --deskops-glass: 1 0 0 / 0.05;
-
-    --deskops-text-primary: 0.96 0.01 264;
-    --deskops-text-secondary: 0.86 0.01 264;
-    --deskops-text-tertiary: 0.7 0.01 264;
-
-    color-scheme: dark;
-  }
-
-  /* Light theme for DeskOps */
-  [data-theme="light"] {
-    --deskops-bg-primary: 0.98 0.01 264;
-    --deskops-bg-secondary: 0.96 0.01 264;
-    --deskops-bg-tertiary: 0.92 0.01 264;
-    --deskops-glass: 1 0 0 / 0.8;
-
-    --deskops-text-primary: 0.18 0.02 264;
-    --deskops-text-secondary: 0.3 0.02 264;
-    --deskops-text-tertiary: 0.5 0.02 264;
-
-    color-scheme: light;
-  }
+  /* NOTE: [data-theme] blocks REMOVED - Use DesignTokens.ts theme objects */
+  /* For theme switching, import { DarkTheme, LightTheme } from '@/lib/DesignTokens' */
 }
 
 /* ============================================================================
    BASE STYLES
-   Source: User's globals.css Lines 69-93
    ============================================================================ */
 
 @layer base {
@@ -267,7 +208,7 @@
     font-variant-numeric: tabular-nums;
   }
 
-  /* Basic focus ring - User's existing */
+  /* Basic focus ring */
   .focus-ring {
     outline: none;
     box-shadow: 0 0 0 2px hsl(var(--ring));
@@ -279,9 +220,7 @@
       0 0 0 2px hsl(var(--ring)),
       0 0 0 4px hsl(var(--ring) / 0.1);
   }
-
-  /* Enhanced focus ring - User's existing */
-  /* Source: User's globals.css Lines 248-263 */
+  /* Enhanced focus ring */
   .focus-ring-enhanced {
     outline: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -297,8 +236,9 @@
   }
 
   /* Accessibility: Focus-visible states */
+  /* NOTE: Using hardcoded success color from DesignTokens.DarkTheme.status.success */
   *:focus-visible {
-    outline: 2px solid oklch(var(--deskops-success));
+    outline: 2px solid oklch(0.65 0.2 158);
     outline-offset: 2px;
   }
 
@@ -329,7 +269,6 @@
 
 /* ============================================================================
    CLERK AUTHENTICATION STYLING
-   Source: User's globals.css Lines 95-195
    CRITICAL: Preserved exactly as-is for authentication functionality
    ============================================================================ */
 
@@ -436,72 +375,79 @@
 
 /* ============================================================================
    DESKOPS GLASS MORPHISM COMPONENTS
+   NOTE: All values hardcoded from @lib/DesignTokens.ts (SSOT)
    Source: DeskOps-DashboardGuide.md Lines 161-182, 295-332
    ============================================================================ */
 
 @layer components {
   /* Base glass container */
+  /* Values from: DarkTheme.background.glass, BackdropBlur.md, BoxShadow.glass */
   .glass-container {
-    background: oklch(var(--deskops-glass));
+    background: oklch(1 0 0 / 0.05);
     border: 1px solid oklch(1 0 0 / 0.1);
     border-radius: 1.25rem;
     padding: 1.5rem;
-    backdrop-filter: blur(var(--deskops-backdrop-blur-md))
-      saturate(var(--deskops-backdrop-saturate));
-    -webkit-backdrop-filter: blur(var(--deskops-backdrop-blur-md))
-      saturate(var(--deskops-backdrop-saturate));
-    box-shadow: var(--deskops-shadow-glass);
-    transition: all var(--deskops-duration-normal) var(--deskops-easing-smooth);
+    backdrop-filter: blur(10px) saturate(1.8);
+    -webkit-backdrop-filter: blur(10px) saturate(1.8);
+    box-shadow:
+      0 8px 32px oklch(0 0 0 / 0.1),
+      inset 1px 1px 0 oklch(1 0 0 / 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .glass-container:hover {
     border: 1px solid oklch(1 0 0 / 0.15);
-    box-shadow: var(--deskops-shadow-glass-hover);
+    box-shadow:
+      0 20px 48px oklch(0 0 0 / 0.2),
+      inset 1px 1px 0 oklch(1 0 0 / 0.3);
     background: oklch(1 0 0 / 0.08);
   }
 
   /* Glass blur variants */
+  /* Values from: BackdropBlur.sm, BackdropBlur.md, BackdropBlur.lg */
   .glass-sm {
-    backdrop-filter: blur(var(--deskops-backdrop-blur-sm));
-    -webkit-backdrop-filter: blur(var(--deskops-backdrop-blur-sm));
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
   }
 
   .glass-md {
-    backdrop-filter: blur(var(--deskops-backdrop-blur-md));
-    -webkit-backdrop-filter: blur(var(--deskops-backdrop-blur-md));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
 
   .glass-lg {
-    backdrop-filter: blur(var(--deskops-backdrop-blur-lg));
-    -webkit-backdrop-filter: blur(var(--deskops-backdrop-blur-lg));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
   }
 
   /* Gradient borders */
+  /* Values from: DarkTheme.status.success, DarkTheme.accent.emerald/violet/orange */
   .gradient-border-emerald {
     background: linear-gradient(
       135deg,
-      oklch(var(--deskops-success)),
-      oklch(var(--deskops-emerald-from))
+      oklch(0.65 0.2 158),
+      oklch(0.75 0.17 166)
     );
   }
 
   .gradient-border-violet {
     background: linear-gradient(
       135deg,
-      oklch(var(--deskops-violet-from)),
-      oklch(var(--deskops-violet-to))
+      oklch(0.6 0.24 293),
+      oklch(0.65 0.27 340)
     );
   }
 
   .gradient-border-orange {
     background: linear-gradient(
       135deg,
-      oklch(var(--deskops-orange-from)),
-      oklch(var(--deskops-orange-to))
+      oklch(0.73 0.16 50),
+      oklch(0.7 0.18 45)
     );
   }
 
   /* Glowing effects */
+  /* Values from: BoxShadow.glowEmerald, glowViolet, glowOrange, glowCritical */
   .glow-emerald {
     box-shadow: 0 0 20px oklch(0.65 0.2 158 / 0.3);
   }
@@ -536,15 +482,16 @@
   }
 
   /* Skeleton loading states */
+  /* Values from: DarkTheme.background.secondary/tertiary, Duration.shimmer */
   .skeleton {
     background: linear-gradient(
       90deg,
-      oklch(var(--deskops-bg-secondary)) 0%,
-      oklch(var(--deskops-bg-tertiary)) 50%,
-      oklch(var(--deskops-bg-secondary)) 100%
+      oklch(0.2 0.05 264) 0%,
+      oklch(0.26 0.05 270) 50%,
+      oklch(0.2 0.05 264) 100%
     );
     background-size: 200% 100%;
-    animation: shimmer var(--deskops-duration-shimmer) linear infinite;
+    animation: shimmer 2s linear infinite;
     border-radius: 0.5rem;
   }
 
@@ -567,14 +514,17 @@
   }
 
   /* Chart-specific styles */
+  /* Values from: DarkTheme.background.glass, BackdropBlur.md, BoxShadow.glass */
   .custom-chart-tooltip {
-    background: oklch(var(--deskops-glass));
-    backdrop-filter: blur(var(--deskops-backdrop-blur-md));
-    -webkit-backdrop-filter: blur(var(--deskops-backdrop-blur-md));
+    background: oklch(1 0 0 / 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid oklch(1 0 0 / 0.1);
     border-radius: 0.75rem;
     padding: 1rem;
-    box-shadow: var(--deskops-shadow-glass);
+    box-shadow:
+      0 8px 32px oklch(0 0 0 / 0.1),
+      inset 1px 1px 0 oklch(1 0 0 / 0.2);
   }
 
   .custom-chart-legend {
@@ -590,7 +540,7 @@
     align-items: center;
     gap: 0.5rem;
     font-size: 0.875rem;
-    color: oklch(var(--deskops-text-secondary));
+    color: oklch(0.86 0.01 264);
   }
 
   .custom-chart-legend-dot {
@@ -600,6 +550,7 @@
   }
 
   /* Metric card specific styles */
+  /* Values from: DarkTheme.accent.emerald, Duration.normal, Easing.smooth */
   .metric-card {
     position: relative;
     overflow: hidden;
@@ -615,12 +566,11 @@
     background: linear-gradient(
       90deg,
       transparent,
-      oklch(var(--deskops-emerald-from)),
+      oklch(0.75 0.17 166),
       transparent
     );
     opacity: 0;
-    transition: opacity var(--deskops-duration-normal)
-      var(--deskops-easing-smooth);
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .metric-card:hover::before {
@@ -644,22 +594,23 @@
 
   .percentage-badge.positive {
     background: oklch(0.65 0.2 158 / 0.1);
-    color: oklch(var(--deskops-success));
+    color: oklch(0.65 0.2 158);
   }
 
   .percentage-badge.negative {
     background: oklch(0.58 0.23 25 / 0.1);
-    color: oklch(var(--deskops-critical));
+    color: oklch(0.58 0.23 25);
   }
 
   /* Custom scrollbar styling */
+  /* Values from: DarkTheme.background.secondary */
   .custom-scrollbar::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
 
   .custom-scrollbar::-webkit-scrollbar-track {
-    background: oklch(var(--deskops-bg-secondary));
+    background: oklch(0.2 0.05 264);
     border-radius: 4px;
   }
 
@@ -675,16 +626,18 @@
 
 /* ============================================================================
    UTILITY CLASSES
+   NOTE: All values hardcoded from @lib/DesignTokens.ts (SSOT)
    Source: DeskOps-DashboardGuide.md Lines 336-889
    ============================================================================ */
 
 @layer utilities {
   /* Text gradient effects */
+  /* Values from: DarkTheme.status.success, DarkTheme.accent.* */
   .text-gradient-emerald {
     background: linear-gradient(
       135deg,
-      oklch(var(--deskops-success)),
-      oklch(var(--deskops-emerald-to))
+      oklch(0.65 0.2 158),
+      oklch(0.78 0.15 195)
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -694,8 +647,8 @@
   .text-gradient-violet {
     background: linear-gradient(
       135deg,
-      oklch(var(--deskops-violet-from)),
-      oklch(var(--deskops-violet-to))
+      oklch(0.6 0.24 293),
+      oklch(0.65 0.27 340)
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -705,8 +658,8 @@
   .text-gradient-orange {
     background: linear-gradient(
       135deg,
-      oklch(var(--deskops-orange-from)),
-      oklch(var(--deskops-orange-to))
+      oklch(0.73 0.16 50),
+      oklch(0.7 0.18 45)
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -714,24 +667,25 @@
   }
 
   /* Icon color utilities */
+  /* Values from: DarkTheme.text.*, DarkTheme.accent.* */
   .icon-primary {
-    color: oklch(var(--deskops-text-primary));
+    color: oklch(0.96 0.01 264);
   }
 
   .icon-secondary {
-    color: oklch(var(--deskops-text-secondary));
+    color: oklch(0.86 0.01 264);
   }
 
   .icon-accent-emerald {
-    color: oklch(var(--deskops-emerald-from));
+    color: oklch(0.75 0.17 166);
   }
 
   .icon-accent-violet {
-    color: oklch(var(--deskops-violet-from));
+    color: oklch(0.6 0.24 293);
   }
 
   .icon-accent-orange {
-    color: oklch(var(--deskops-orange-from));
+    color: oklch(0.73 0.16 50);
   }
 
   /* Glow filter effect */
@@ -740,9 +694,9 @@
   }
 
   /* Hover scale effect */
+  /* Values from: Duration.normal, Easing.smooth */
   .hover-scale {
-    transition: transform var(--deskops-duration-normal)
-      var(--deskops-easing-smooth);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .hover-scale:hover {
@@ -757,17 +711,16 @@
   }
 
   /* Backdrop blur utilities */
+  /* Values from: BackdropBlur.md, BackdropSaturate[180] */
   .backdrop-blur-glass {
-    backdrop-filter: blur(var(--deskops-backdrop-blur-md))
-      saturate(var(--deskops-backdrop-saturate));
-    -webkit-backdrop-filter: blur(var(--deskops-backdrop-blur-md))
-      saturate(var(--deskops-backdrop-saturate));
+    backdrop-filter: blur(10px) saturate(1.8);
+    -webkit-backdrop-filter: blur(10px) saturate(1.8);
   }
 
   /* Fade in animation utility */
+  /* Values from: Duration.medium, Easing.elastic */
   .fade-in {
-    animation: fadeIn var(--deskops-duration-medium)
-      var(--deskops-easing-elastic);
+    animation: fadeIn 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   /* Stagger delay utilities */
@@ -838,10 +791,10 @@
 
 /* ============================================================================
    KEYFRAME ANIMATIONS
-   Source: User's globals.css Lines 197-246 + DeskOps enhancements
+   NOTE: @keyframes cannot be defined in TypeScript, must remain in CSS
+   Source: DeskOps-DashboardGuide.md + user's existing animations
    ============================================================================ */
 
-/* User's existing animations - preserved */
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -892,7 +845,6 @@
   }
 }
 
-/* DeskOps-specific animations */
 @keyframes gradient-shift {
   0%,
   100% {
@@ -1035,8 +987,8 @@
 }
 
 /* ============================================================================
-   RESPONSIVE DESIGN ENHANCEMENTS
-   Source: User's globals.css Lines 265-283 + DeskOps breakpoints
+   RESPONSIVE DESIGN & MEDIA QUERIES
+   Source: User's existing globals.css + DeskOps breakpoints
    ============================================================================ */
 
 @media (max-width: 640px) {
@@ -1067,7 +1019,6 @@
 
 /* ============================================================================
    ACCESSIBILITY & PRINT STYLES
-   Source: User's globals.css Lines 285-299 + DeskOps enhancements
    ============================================================================ */
 
 @media (prefers-reduced-motion: reduce) {

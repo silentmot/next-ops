@@ -6,7 +6,7 @@
 
 **Based on:** DeskOps-DashboardGuide.md
 **Enhanced with:** tokens.ts color preferences + user's globals.css
-**Framework:** Next.js 15+ with App Router
+**Framework:** Next.js 16+ with App Router
 **Tailwind CSS:** v4 with @import syntax
 **Color Format:** oklch (Oklab color space)
 **Architecture:** Standalone Next.js app with app directory (No src directory)
@@ -61,7 +61,7 @@
 ```bash
 # Required versions
 Node.js: 18.17 or higher
-Next.js: 15.0.0 or higher
+Next.js: 16.0.0 or higher
 React: 18.2.0 or higher
 Tailwind CSS: 4.0.0 or higher
 ```
@@ -69,7 +69,7 @@ Tailwind CSS: 4.0.0 or higher
 ### Create Next.js Project
 
 ```bash
-npx create-next-app@latest deskops-dashboard
+bunx create-next-app@latest deskops-dashboard
 # Select the following options:
 # ✓ Would you like to use TypeScript? Yes
 # ✓ Would you like to use ESLint? Yes

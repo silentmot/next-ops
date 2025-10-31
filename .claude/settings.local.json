@@ -5,7 +5,8 @@
       "Bash(bun run build:*)",
       "Bash(npx tsc:*)",
       "Bash(bunx tsc:*)",
-      "Bash(bun add:*)"
+      "Bash(bun add:*)",
+      "Bash(bunx biome check:*)"
     ],
     "deny": [],
     "ask": []

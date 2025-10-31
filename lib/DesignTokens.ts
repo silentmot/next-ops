@@ -58,6 +58,7 @@ export const LightTheme = {
     primary: "oklch(0.18 0.02 264)", // rgba(15, 23, 42, 1) - Near Black
     secondary: "oklch(0.30 0.02 264)", // rgba(51, 65, 85, 1) - Dark Gray
     tertiary: "oklch(0.50 0.02 264)", // rgba(100, 116, 139, 1) - Medium Gray
+    interactive: "oklch(0.10 0.02 264)", // rgba(0, 0, 0, 0.9) - Near Black on Hover
   },
   accent: DarkTheme.accent, // Accent colors remain consistent
   status: DarkTheme.status, // Status colors remain consistent
