@@ -61,7 +61,17 @@ export async function createReceivedMaterial(data: unknown): Promise<{
     revalidatePath("/dashboard");
     revalidatePath("/received");
 
-    return { success: true, data: receivedMaterial as ReceivedMaterial };
+    return {
+      success: true,
+      data: {
+        ...receivedMaterial,
+        qtyTon:
+          typeof receivedMaterial.qtyTon === "object" &&
+          typeof receivedMaterial.qtyTon.toNumber === "function"
+            ? receivedMaterial.qtyTon.toNumber()
+            : receivedMaterial.qtyTon,
+      } as ReceivedMaterial,
+    };
   } catch (error) {
     console.error("Failed to create received material:", error);
     return {
@@ -117,7 +127,10 @@ export async function updateReceivedMaterial(
     revalidatePath("/dashboard");
     revalidatePath("/received");
 
-    return { success: true, data: receivedMaterial as ReceivedMaterial };
+    return {
+      success: true,
+      data: receivedMaterial as unknown as ReceivedMaterial
+    };
   } catch (error) {
     console.error("Failed to update received material:", error);
     return {

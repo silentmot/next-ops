@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import type { Prisma } from "@prisma/client";
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
@@ -22,16 +23,12 @@ export const prisma =
         ],
   });
 
-interface PrismaQueryEvent {
-  query: string;
-  duration: number;
-  timestamp: Date;
-  target: string;
-}
-
 // Log queries in development only
 if (enableQueryLog && isDev) {
-  prisma.$on("query", (e: PrismaQueryEvent) => {
+  (prisma.$on as (
+    event: "query",
+    callback: (e: Prisma.QueryEvent) => void,
+  ) => void)("query", (e: Prisma.QueryEvent) => {
     console.log(`Query: ${e.query}`);
     console.log(`Duration: ${e.duration}ms`);
   });
