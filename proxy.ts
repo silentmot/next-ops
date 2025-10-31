@@ -1,6 +1,24 @@
-import { clerkMiddleware } from "@clerk/nextjs/server";
+import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
 
-export default clerkMiddleware();
+const isProtectedRoute = createRouteMatcher(["/dashboard(.*)", "/api/(.*)"]);
+
+const isPublicRoute = createRouteMatcher(["/api/auth/session"]);
+
+export default clerkMiddleware(async (auth, req) => {
+  // Allow session checks without authentication
+  if (isPublicRoute(req)) {
+    return;
+  }
+
+  // Protect all other routes
+  if (isProtectedRoute(req)) {
+    await auth.protect();
+  }
+
+  // TODO: Role-based access control
+  // Check user roles from Clerk session metadata and restrict /admin routes
+  // to users with admin role (requires Clerk metadata configuration)
+});
 
 export const config = {
   matcher: [

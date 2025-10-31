@@ -54,10 +54,10 @@ export type OperationType = "CRU-PRO" | "CRU-DIS" | "CRU-OP" | "SEG-OP";
  * Source: Document index 9 - "export type EquipmentType"
  */
 export type EquipmentType =
-  | "CRUSHING_SCREENING"
-  | "EARTH_MOVING"
-  | "HAULING"
-  | "AUXILIARY";
+  "CRUSHING_SCREENING"
+  "EARTH_MOVING"
+  "HAULING"
+  "AUXILIARY"
 
 /**
  * Role codes for manpower

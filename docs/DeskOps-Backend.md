@@ -24,7 +24,7 @@ Complete backend architecture using Next.js 16 App Router with API routes, Serve
 ### Authentication Routes
 
 ```typescript
-// src/app/api/auth/session/route.ts
+// app/api/auth/session/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { prisma } from '@/lib/db';
@@ -56,7 +56,7 @@ export async function GET(): Promise<NextResponse> {
 ### Health Check Route
 
 ```typescript
-// src/app/api/hello/route.ts
+// app/api/hello/route.ts
 import { NextResponse } from 'next/server';
 
 /**
@@ -78,7 +78,7 @@ export async function GET(): Promise<NextResponse> {
 ### Site Management Routes
 
 ```typescript
-// src/app/api/sites/route.ts
+// app/api/sites/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { prisma } from '@/lib/db';
@@ -159,7 +159,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 ```
 
 ```typescript
-// src/app/api/sites/[siteId]/route.ts
+// app/api/sites/[siteId]/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { prisma } from '@/lib/db';
@@ -211,7 +211,7 @@ export async function GET(
 ### Production Data Routes
 
 ```typescript
-// src/app/api/production/route.ts
+// app/api/production/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { prisma } from '@/lib/db';
@@ -342,7 +342,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 ### Dispatch Routes
 
 ```typescript
-// src/app/api/dispatch/route.ts
+// app/api/dispatch/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { prisma } from '@/lib/db';
@@ -473,7 +473,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 ### Equipment Tracking Routes
 
 ```typescript
-// src/app/api/equipment/route.ts
+// app/api/equipment/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { prisma } from '@/lib/db';
@@ -595,7 +595,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 ### Received Materials Routes
 
 ```typescript
-// src/app/api/received/route.ts
+// app/api/received/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { prisma } from '@/lib/db';
@@ -785,7 +785,7 @@ Returns created received material record with same structure as GET response ite
 ### Manpower Attendance Routes
 
 ```typescript
-// src/app/api/manpower/route.ts
+// app/api/manpower/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { prisma } from '@/lib/db';
@@ -962,7 +962,7 @@ Returns created manpower log record with same structure as GET response items.
 ### Inventory Snapshot Routes
 
 ```typescript
-// src/app/api/inventory/route.ts
+// app/api/inventory/route.ts
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
@@ -1218,7 +1218,7 @@ Returns created inventory snapshot record with same structure as GET response it
 ### Dashboard Analytics Routes
 
 ```typescript
-// src/app/api/dashboard/metrics/route.ts
+// app/api/dashboard/metrics/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { prisma } from '@/lib/db';
@@ -1387,7 +1387,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 ### Export Job Routes
 
 ```typescript
-// src/app/api/exports/route.ts
+// app/api/exports/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { prisma } from '@/lib/db';
@@ -1494,7 +1494,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
 ### Export Job Detail Route
 
 ```typescript
-// src/app/api/exports/[jobId]/route.ts
+// app/api/exports/[jobId]/route.ts
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
@@ -1570,7 +1570,7 @@ export async function GET(
 ### Export File Download Route
 
 ```typescript
-// src/app/api/exports/[jobId]/download/route.ts
+// app/api/exports/[jobId]/download/route.ts
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
@@ -1738,7 +1738,7 @@ Example: `production_2025-01-01_to_2025-01-31.xlsx`
 ### Export Job Retry Route
 
 ```typescript
-// src/app/api/exports/[jobId]/retry/route.ts
+// app/api/exports/[jobId]/retry/route.ts
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
@@ -1848,7 +1848,7 @@ export async function POST(
 ### Export Progress Stream Route
 
 ```typescript
-// src/app/api/exports/progress/route.ts
+// app/api/exports/progress/route.ts
 import type { NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
@@ -2923,6 +2923,5 @@ This backend architecture provides:
 
 1. Implement remaining API routes for received materials, manpower
 2. Set up background job queues (Redis + Bull/BullMQ)
-3. Add comprehensive error monitoring (Sentry)
-4. Implement caching strategy (Redis/Upstash)
-5. Add API rate limiting middleware
+3. Implement caching strategy (Redis/Upstash)
+4. Add API rate limiting middleware

@@ -5,7 +5,7 @@
 
 "use client";
 
-// biome-ignore assist/source/organizeImports: <explanation>
+// biome-ignore assist/source/organizeImports: recharts imports need specific order
 import {
   Cell,
   Legend,
@@ -13,9 +13,9 @@ import {
   PieChart,
   ResponsiveContainer,
   Tooltip,
-  PieLabelRenderProps,
+  type PieLabelRenderProps,
 } from "recharts";
-import { DesignTokens } from "@/lib/DesignTokens";
+import type { DesignTokens } from "@/lib/DesignTokens";
 import { CHART_CONFIG } from "./chartConfig";
 
 export interface PieChartData {

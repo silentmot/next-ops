@@ -18,13 +18,16 @@
     "@clerk/nextjs": "^6.34.1",
     "@iconify/api": "^3.1.1",
     "@prisma/client": "^6.18.0",
+    "@tailwindcss/cli": "^4.1.16",
     "dotenv": "^17.2.3",
     "framer-motion": "^12.23.24",
-    "lucide-react": "^0.548.0",
+    "lucide-react": "^0.552.0",
     "next": "16.0.1",
+    "postcss": "^8.5.6",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "recharts": "^3.3.0",
+    "zod": "^4.1.12",
     "zustand": "^5.0.8"
   },
   "devDependencies": {

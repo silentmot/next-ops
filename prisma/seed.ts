@@ -1,15 +1,15 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 import {
-  MATERIALS,
-  EQUIPMENT,
-  ROLES,
   DEFAULT_SITE_CODE,
-} from '../lib/constants';
+  EQUIPMENT,
+  MATERIALS,
+  ROLES,
+} from "../lib/constants";
 
 const prisma = new PrismaClient();
 
 async function main(): Promise<void> {
-  console.log('🌱 Starting database seed...');
+  console.log("🌱 Starting database seed...");
 
   // Seed default site
   const defaultSite = await prisma.site.upsert({
@@ -17,14 +17,14 @@ async function main(): Promise<void> {
     update: {},
     create: {
       code: DEFAULT_SITE_CODE,
-      name: 'Al Asla Recycling Facility',
-      location: 'Jeddah, Saudi Arabia',
-      timezone: 'Asia/Riyadh',
+      name: "Al Asla Recycling Facility",
+      location: "Jeddah, Saudi Arabia",
+      timezone: "Asia/Riyadh",
       isActive: true,
     },
   });
 
-  console.log('✅ Default site created:', defaultSite.code);
+  console.log("✅ Default site created:", defaultSite.code);
 
   // Seed materials
   for (const material of MATERIALS) {
@@ -91,12 +91,12 @@ async function main(): Promise<void> {
 
   console.log(`✅ Seeded ${ROLES.length} manpower roles`);
 
-  console.log('🎉 Database seed completed successfully!');
+  console.log("🎉 Database seed completed successfully!");
 }
 
 main()
   .catch((e) => {
-    console.error('❌ Seed failed:', e);
+    console.error("❌ Seed failed:", e);
     process.exit(1);
   })
   .finally(async () => {

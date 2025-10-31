@@ -1,5 +1,5 @@
-/** biome-ignore-all lint/a11y/useSemanticElements: <explanation> */
-/** biome-ignore-all lint/suspicious/noArrayIndexKey: <explanation> */
+/** biome-ignore-all lint/a11y/useSemanticElements: demo page with complex layout */
+/** biome-ignore-all lint/suspicious/noArrayIndexKey: demo data with stable array indices */
 "use client";
 
 import {
