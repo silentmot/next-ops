@@ -32,7 +32,7 @@
 
 ## Deliverables
 
-1. **Dashboard Page Demo Page** (`app/(protected)/dashboard/page.tsx` or similar)
+1. **Dashboard Page Demo Page** (`app/demo/dashboard/{agent-name}/page.tsx`)
    - Server Component with data fetching
    - Responsive layout using design system grid/spacing tokens
    - Type-safe props and data structures (NO `any` types)
