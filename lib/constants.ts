@@ -534,10 +534,60 @@ export const EXPORT_HEADERS = {
 
 /**
  * Default site code
- * Source: Document index 9 - "export const DEFAULT_SITE_CODE"
+ * Source: Document index 9 - "export const SITES: Site[]"
  */
-export const DEFAULT_SITE_CODE = "ALASLA-29";
 
+export const SITES: Site[] = [
+  {
+    id: "SITE-001",
+    code: "ALASLA-29",
+    name: "Al Asla Recycling Facility",
+    location: "Jeddah, Saudi Arabia",
+    timezone: "Asia/Riyadh",
+    isActive: true,
+  },
+  {
+    id: "SITE-002",
+    code: "ASFAN-30",
+    name: "Asfan Recycling Facility",
+    location: "Jeddah, Saudi Arabia",
+    timezone: "Asia/Riyadh",
+    isActive: true,
+  },
+  {
+    id: "SITE-003",
+    code: "NJED-31",
+    name: "North Jeddah Recycling Facility",
+    location: "Jeddah, Saudi Arabia",
+    timezone: "Asia/Riyadh",
+    isActive: true,
+  },
+  {
+    id: "SITE-004",
+    code: "SJED-32",
+    name: "South Jeddah Recycling Facility",
+    location: "Jeddah, Saudi Arabia",
+    timezone: "Asia/Riyadh",
+    isActive: true,
+  },
+  {
+    id: "SITE-005",
+    code: "DAHBAN-33",
+    name: "Dahban Recycling Facility",
+    location: "Rabegh, Saudi Arabia",
+    timezone: "Asia/Riyadh",
+    isActive: true,
+  },
+];
+
+export interface Site {
+  id: string;
+  code: string;
+  name: string;
+  location: string;
+  timezone: string;
+  isActive: boolean;
+}
 /**
  * Decimal precision by UOM
  * Source: Document index 9 - "export const DECIMAL_PRECISION"
