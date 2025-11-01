@@ -223,10 +223,10 @@ export function ThemeSwitcher() {
   const { variant, setVariant, isDark, toggleDarkMode } = useTheme();
 
   const variants = [
-    { id: "cosmic", name: "Cosmic", emoji: "🌌" },
-    { id: "aurora", name: "Aurora", emoji: "🌅" },
-    { id: "nebula", name: "Nebula", emoji: "🌠" },
-    { id: "void", name: "Void", emoji: "🕳️" },
+    { id: "cosmic", name: "Cosmic" },
+    { id: "aurora", name: "Aurora" },
+    { id: "nebula", name: "Nebula" },
+    { id: "void", name: "Void" },
   ] as const;
 
   return (
@@ -258,7 +258,7 @@ export function ThemeSwitcher() {
                 }
               `}
             >
-              <span className="mr-2">{v.emoji}</span>
+              <span className="mr-2"></span>
               {v.name}
             </button>
           ))}

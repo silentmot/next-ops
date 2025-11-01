@@ -791,6 +791,21 @@ export function getGradientCSS(gradientKey: keyof typeof Gradient): string {
   return Gradient[gradientKey].css;
 }
 
+/**
+ * Get theme-aware colors
+ * Returns color values based on current theme mode
+ * Usage: const colors = getThemeColors(isDark ? 'dark' : 'light')
+ */
+export function getThemeColors(mode: ThemeMode) {
+  const theme = getTheme(mode);
+  return {
+    background: theme.background,
+    text: theme.text,
+    accent: theme.accent,
+    status: theme.status,
+  };
+}
+
 // ============================================================================
 // EXPORT ALL TOKENS
 // ============================================================================
@@ -903,6 +918,7 @@ export const DesignTokens = {
   // Helpers
   helpers: {
     getTheme,
+    getThemeColors,
     getResponsiveValue,
     composeBackdropFilter,
     getGlassMorphismStyles,

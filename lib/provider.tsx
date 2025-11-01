@@ -207,8 +207,9 @@ export function ThemeProvider({
       root.style.setProperty(`--spacing-${key}`, value as string);
     });
 
-    // Apply theme class to body
-    document.body.className = `theme-${variant} ${isDark ? "dark" : "light"}`;
+    // Apply theme class and data-theme attribute to <html> element
+    root.className = `theme-${variant} ${isDark ? "dark" : "light"}`;
+    root.setAttribute("data-theme", isDark ? "dark" : "light");
   }, [tokens, variant, isDark]);
 
   const value: ThemeContextType = {

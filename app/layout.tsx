@@ -1,13 +1,6 @@
 /** biome-ignore-all assist/source/organizeImports: Clerk components must maintain specific import order */
 import type { Metadata } from "next";
-import {
-  ClerkProvider,
-  SignInButton,
-  SignUpButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/lib";
 import { AppLoadingWrapper } from "@components/AppLoadingWrapper";
@@ -270,102 +263,35 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider appearance={clerkAppearance}>
-      <html lang="en" className="dark">
+      <html lang="en">
         <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
-          style={{
-            background:
-              "linear-gradient(135deg, oklch(0.13 0.02 265) 0%, oklch(0.21 0.08 275) 50%, oklch(0.30 0.10 280) 100%)",
-            backgroundAttachment: "fixed",
-          }}
+          className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-linear-to-br from-(--background-primary) via-(--background-secondary) to-(--background-tertiary)`}
           suppressHydrationWarning={true}
         >
-          {/* Animated background elements */}
+          {/* Animated background elements using design tokens */}
           <div className="fixed inset-0 overflow-hidden pointer-events-none">
             <div
               className="absolute -top-1/2 -left-1/2 w-full h-full opacity-30"
               style={{
-                background: `radial-gradient(circle, ${DesignTokens.theme.dark.accent.emerald.from} / ${DesignTokens.opacity["10"]} 0%, transparent 70%)`,
+                background: `radial-gradient(circle, var(--primary) / 0.1 0%, transparent 70%)`,
                 animation: "float 20s ease-in-out infinite",
               }}
             />
             <div
               className="absolute -bottom-1/2 -right-1/2 w-full h-full opacity-20"
               style={{
-                background: `radial-gradient(circle, ${DesignTokens.theme.dark.accent.violet.from} / ${DesignTokens.opacity["10"]} 0%, transparent 70%)`,
+                background: `radial-gradient(circle, var(--primary) / 0.1 0%, transparent 70%)`,
                 animation: "float 25s ease-in-out infinite reverse",
               }}
             />
           </div>
 
-          {/* Sophisticated header with glassmorphic effect */}
-          <header
-            className="relative z-10 backdrop-blur-md border-b"
-            style={{
-              backgroundColor: DesignTokens.glassOpacity.medium,
-              borderBottomColor: DesignTokens.borderOpacity.light,
-            }}
-          >
-            <div className="container mx-auto px-4 py-4">
-              <div className="flex justify-between items-center">
-                <div className="flex items-center space-x-4">
-                  <div
-                    className="w-10 h-10 rounded-lg flex items-center justify-center font-bold text-white"
-                    style={{
-                      background: DesignTokens.gradient.signIn.css,
-                    }}
-                  >
-                    OPS
-                  </div>
-                  <h1 className="text-xl font-semibold text-white hidden sm:block">
-                    Operations Portal
-                  </h1>
-                </div>
-
-                <div className="flex items-center space-x-4">
-                  <SignedOut>
-                    <SignInButton>
-                      <button
-                        type="button"
-                        className="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors"
-                      >
-                        Sign In
-                      </button>
-                    </SignInButton>
-                    <SignUpButton>
-                      <button
-                        type="button"
-                        className="px-6 py-2 text-sm font-medium text-white rounded-lg transition-all duration-300 hover:transform hover:scale-105"
-                        style={{
-                          background: DesignTokens.gradient.signIn.css,
-                          boxShadow: DesignTokens.boxShadow.brand.primary,
-                        }}
-                      >
-                        Get Started
-                      </button>
-                    </SignUpButton>
-                  </SignedOut>
-                  <SignedIn>
-                    <UserButton
-                      appearance={{
-                        elements: {
-                          userButtonAvatarBox:
-                            clerkAppearance.elements.userButtonAvatarBox,
-                        },
-                      }}
-                    />
-                  </SignedIn>
-                </div>
-              </div>
-            </div>
-          </header>
-
-          {/* Main content area */}
-          <main className="relative z-10">
+          {/* Main content area with relative positioning */}
+          <div className="relative z-10">
             <ThemeProvider defaultVariant="cosmic" defaultDarkMode={true}>
               <AppLoadingWrapper>{children}</AppLoadingWrapper>
             </ThemeProvider>
-          </main>
+          </div>
         </body>
       </html>
     </ClerkProvider>

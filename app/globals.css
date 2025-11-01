@@ -63,8 +63,8 @@
     --base-font-weight: normal;
     --base-font-style: normal;
     --base-letter-spacing: 0em;
-    --heading-font-color: inherit;
-    --heading-font-color-dark: inherit;
+    --heading-font-color: oklch(0.15 0.02 264);
+    --heading-font-color-dark: oklch(0.96 0.01 264);
     --heading-font-family:
       Avenir, Montserrat, Corbel, "URW Gothic", source-sans-pro, sans-serif;
     --heading-font-weight: normal;
@@ -118,6 +118,63 @@
 
   /* NOTE: [data-theme] blocks REMOVED - Use DesignTokens.ts theme objects */
   /* For theme switching, import { DarkTheme, LightTheme } from '@/lib/DesignTokens' */
+
+  /* Dashboard Component Variables - Dark Theme (from DesignTokens.ts DarkTheme) */
+  [data-theme="dark"],
+  .dark {
+    --background-primary: oklch(0.15 0.06 264);
+    --background-secondary: oklch(0.2 0.05 264);
+    --background-tertiary: oklch(0.26 0.05 270);
+    --glass-base: oklch(1 0 0 / 0.05);
+    --sidebar-bg: oklch(0.2 0.05 264);
+    --dropdown-bg: oklch(0.26 0.05 270);
+    --input-bg: oklch(0.26 0.05 270 / 0.6);
+    --input-hover: oklch(0.26 0.05 270 / 0.8);
+    --kbd-bg: oklch(0.26 0.05 270);
+    --hover-bg: oklch(0.26 0.05 270 / 0.5);
+    --active-bg: oklch(0.26 0.05 270 / 0.7);
+    --selected-bg: oklch(0.75 0.17 166 / 0.2);
+    --secondary-bg: oklch(0.26 0.05 270);
+    --secondary-hover: oklch(0.26 0.05 270 / 0.8);
+    --text-primary: oklch(0.96 0.01 264);
+    --text-secondary: oklch(0.86 0.01 264);
+    --text-tertiary: oklch(0.7 0.01 264);
+    --border-color: oklch(0.26 0.05 270 / 0.3);
+    --border-hover: oklch(0.75 0.17 166 / 0.5);
+    --primary: oklch(0.75 0.17 166);
+    --primary-text: oklch(0.96 0.01 264);
+    --focus-ring: oklch(0.75 0.17 166 / 0.3);
+    --shadow-lg: 0 10px 40px oklch(0 0 0 / 0.5);
+    --card-bg: oklch(0.2 0.05 264);
+  }
+
+  /* Dashboard Component Variables - Light Theme (from DesignTokens.ts LightTheme) */
+  [data-theme="light"] {
+    --background-primary: oklch(0.98 0.01 264);
+    --background-secondary: oklch(0.96 0.01 264);
+    --background-tertiary: oklch(0.92 0.01 264);
+    --glass-base: oklch(1 0 0 / 0.8);
+    --sidebar-bg: oklch(0.96 0.01 264);
+    --dropdown-bg: oklch(0.98 0.01 264);
+    --input-bg: oklch(0.92 0.01 264);
+    --input-hover: oklch(0.88 0.01 264);
+    --kbd-bg: oklch(0.88 0.01 264);
+    --hover-bg: oklch(0.92 0.01 264);
+    --active-bg: oklch(0.88 0.01 264);
+    --selected-bg: oklch(0.75 0.17 166 / 0.15);
+    --secondary-bg: oklch(0.92 0.01 264);
+    --secondary-hover: oklch(0.88 0.01 264);
+    --text-primary: oklch(0.18 0.02 264);
+    --text-secondary: oklch(0.3 0.02 264);
+    --text-tertiary: oklch(0.5 0.02 264);
+    --border-color: oklch(0.92 0.01 264);
+    --border-hover: oklch(0.75 0.17 166 / 0.5);
+    --primary: oklch(0.75 0.17 166);
+    --primary-text: oklch(0.98 0.01 264);
+    --focus-ring: oklch(0.75 0.17 166 / 0.3);
+    --shadow-lg: 0 10px 40px oklch(0 0 0 / 0.1);
+    --card-bg: oklch(0.98 0.01 264);
+  }
 }
 
 /* ============================================================================
@@ -146,7 +203,7 @@
 
   body {
     background-color: hsl(var(--background));
-    color: var(--base-font-color-dark);
+    color: var(--base-font-color);
     font-family: var(--base-font-family);
     font-size: var(--base-font-size);
     line-height: var(--base-line-height);
@@ -160,6 +217,10 @@
       "calt" 1;
   }
 
+  .dark body {
+    color: var(--base-font-color-dark);
+  }
+
   /* Headings with enhanced typography */
   h1,
   h2,
@@ -167,16 +228,25 @@
   h4,
   h5,
   h6 {
-    color: var(--heading-font-color-dark);
+    color: var(--heading-font-color);
     font-family: var(--heading-font-family);
     font-weight: var(--heading-font-weight);
     font-style: var(--heading-font-style);
     letter-spacing: var(--heading-letter-spacing);
   }
 
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    color: var(--heading-font-color-dark);
+  }
+
   /* Anchor tags with enhanced typography */
   a {
-    color: var(--anchor-font-color-dark);
+    color: var(--anchor-font-color);
     font-family: var(--anchor-font-family);
     font-size: var(--anchor-font-size);
     line-height: var(--anchor-line-height);
@@ -185,6 +255,10 @@
     letter-spacing: var(--anchor-letter-spacing);
     text-decoration: var(--anchor-text-decoration);
     transition: all 0.2s ease;
+  }
+
+  .dark a {
+    color: var(--anchor-font-color-dark);
   }
 
   a:hover {
