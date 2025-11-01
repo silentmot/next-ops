@@ -129,7 +129,14 @@ export async function updateReceivedMaterial(
 
     return {
       success: true,
-      data: receivedMaterial as unknown as ReceivedMaterial
+      data: {
+        ...receivedMaterial,
+        qtyTon:
+          typeof receivedMaterial.qtyTon === "object" &&
+          typeof receivedMaterial.qtyTon.toNumber === "function"
+            ? receivedMaterial.qtyTon.toNumber()
+            : receivedMaterial.qtyTon,
+      } as ReceivedMaterial,
     };
   } catch (error) {
     console.error("Failed to update received material:", error);
